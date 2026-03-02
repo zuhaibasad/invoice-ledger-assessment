@@ -1,0 +1,11 @@
+database: 
+  name: "invoice_warehouse.duckdb"
+
+schemas:
+  raw: "raw"
+  staging: "staging"
+  intermeditate: "intermediate"
+  mart: "mart"
+
+raw_data:
+  raw_data_path: "data/raw_sample_data/"  

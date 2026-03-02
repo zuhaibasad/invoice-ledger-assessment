@@ -3,6 +3,14 @@ __pycache__/
 *.pyc
 .venv/
 
+#DuckDB
+data/invoice_warehouse.db
+data/invoice_warehouse.db.wal
+
+#Docker
+.docker/
+
+
 # VS Code
 .vscode/
 

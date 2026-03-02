@@ -1,0 +1,14 @@
+customer_id,customer_name,country,segment,email
+101,Acme Corp,USA,Enterprise,acme@example.com
+102,Globex Ltd,UK,SMB,globex@example.com
+103,Initech,USA,Enterprise,initech@example.com
+104,Umbrella Inc,DE,SMB,umbrella@example.com
+105,Hooli,USA,Startup,hooli@example.com
+106,Dunder Mifflin,USA,SMB,dunder@example.com
+107,Stark Industries,USA,Enterprise,stark@example.com
+108,Wayne Enterprises,USA,Enterprise,wayne@example.com
+102,Globex Ltd,UK,SMB,globex@example.com
+109,,FR,SMB,noname@example.com
+110,Phantom Corp,XX,Enterprise,phantom@example.com
+111,Shell Co,,Startup,shell@example.com
+112,Acme Corp,USA,Enterprise,acme@example.com

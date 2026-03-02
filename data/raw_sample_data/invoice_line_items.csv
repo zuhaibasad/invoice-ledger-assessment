@@ -1,0 +1,25 @@
+line_item_id,invoice_id,product_name,quantity,unit_price
+1,1,Consulting Services,10,150.00
+2,1,Software License,1,0.00
+3,2,Hardware Supply,3,299.83
+4,3,Consulting Services,3,150.00
+5,4,Enterprise Support,1,2200.00
+6,5,Consulting Services,2,150.00
+7,6,Software License,2,550.00
+8,7,Hardware Supply,2,299.83
+9,7,Consulting Services,1,150.00
+10,8,Enterprise Support,1,3000.00
+11,9,Consulting Services,4,150.00
+12,10,Enterprise Support,2,2250.00
+13,11,Hardware Supply,2,299.83
+14,12,Software License,3,550.00
+15,13,Consulting Services,7,150.00
+16,14,Hardware Supply,1,330.00
+17,15,Enterprise Support,1,980.00
+18,16,Consulting Services,1,-250.00
+19,17,Software License,0,0.00
+20,2,Hardware Supply,1,0.01
+21,999,Consulting Services,1,500.00
+7,6,Software License,2,550.00
+22,10,Enterprise Support,1,2250.00
+23,13,Consulting Services,3,150.00
