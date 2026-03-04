@@ -1,5 +1,5 @@
 name: invoice_ledger
-version: '1.0'
+version: "1.0"
 config-version: 2
 
 profile: invoice_ledger
@@ -11,6 +11,12 @@ macro-paths: ["macros"]
 target-path: "target"
 clean-targets: ["target", "dbt_packages"]
 
+# No +schema overrides here because schema routing is handled entirely by
+# the generate_schema_name macro:
+#   -> dev target  → all models land in 'dev' schema
+#   -> prod target → all models land in currently inactive schema (prod_blue or prod_green)
+
+
 models:
   invoice_ledger:
     staging:
@@ -19,3 +25,12 @@ models:
       +materialized: view
     mart:
       +materialized: table
+
+# ── Blue-green after run swap hook ───────────────────────────────────
+# After "dbt build --target prod" completes. this hook checks if
+# ALL nodes (models + tests) passed. Only then does it swap the
+# proxy view (in public schema) to the newly built inactive_schema.mart_invoice_ledger. If anything failed,
+# the proxy view stays pointed at the active.mart_invoice_ledger
+
+on-run-end:
+  - "{{ swap_proxy_view_on_success(results) }}"

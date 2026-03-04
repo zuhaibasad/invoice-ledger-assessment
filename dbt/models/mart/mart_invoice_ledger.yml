@@ -6,12 +6,14 @@ models:
      Stable & query ready invoice ledger model. The single entry point for all API consumers.
      but via another proxy view public.mart_invoice_ledger
 
-     Contract enforcement guarantees that any column name or data type drift will fail the dbt build before bad data reaches the API.
+     Contract enforcement guarantees that any column name or data type drift 
+     will fail the dbt build before bad data reaches the API.
      
      Blue-Green deployment for zero-downtime for API consumers. After a successful dbt build, 
-     the post hook swaps the public proxy view to point to this model in current target schema (prod_blue or prod_green).
+     the on run end hook swaps the public proxy view to point to this model 
+     in current active schema (prod_blue or prod_green).
      API is only concerned with public.mart_invoice_ledger.
-
+    
      Versioning: dbt model versions align 1:1 with API endpoint versions.
      Breaking schema changes are introduced as new versions (v2, v3, ...),
      never as modifications to existing versions. This enables zero-downtime
