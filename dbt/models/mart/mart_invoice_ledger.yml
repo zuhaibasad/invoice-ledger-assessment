@@ -1,0 +1,125 @@
+version: 2
+
+models: 
+- name:  mart_invoice_ledger
+  description: >
+     Stable & query ready invoice ledger model. The single entry point for all API consumers.
+     but via another proxy view public.mart_invoice_ledger
+
+     Contract enforcement guarantees that any column name or data type drift will fail the dbt build before bad data reaches the API.
+     
+     Blue-Green deployment for zero-downtime for API consumers. After a successful dbt build, 
+     the post hook swaps the public proxy view to point to this model in current target schema (prod_blue or prod_green).
+     API is only concerned with public.mart_invoice_ledger.
+
+     Versioning: dbt model versions align 1:1 with API endpoint versions.
+     Breaking schema changes are introduced as new versions (v2, v3, ...),
+     never as modifications to existing versions. This enables zero-downtime
+     schema evolution — old consumers keep using v1 while new consumers
+     adopt the latest version.
+     
+  config:
+     contract:
+       enforced: true
+     materialized: table
+     post hook:
+       - "{{ swap_proxy_view()}}"
+  latest_version: 1
+
+  versions:
+    - v: 1
+      columns:
+         - name: invoice_id
+           description: "Unique invoice identifier"
+           data_type: INTEGER
+           constraints:
+             - type: not_null
+           tests:
+             - unique
+             - not_null
+         
+         - name: invoice_amount
+           description: "amount coming from invoice data source"
+           data_type: DOUBLE
+           constraints:
+             - type: not_null
+           tests:
+             - not_null  
+
+         - name: calculated_invoice_total
+           description: "invoice amount calculated by line items count and unit price of each line item"
+           data_type: DOUBLE
+           constraints:
+             - type: not_null
+           tests:
+             - not_null
+          
+         - name: amount_discrepancy
+           description: "difference in invoice amount between invoice data source and calculated invoice total"
+           data_type: DOUBLE
+           constraints:
+             - type: not_null
+           tests:
+             - not_null  
+
+         - name: invoice_date
+           description: "Date the invoice was issued"
+           data_type: DATE
+           constraints:
+             - type: not_null
+           tests:
+             - not_null
+
+         - name: invoice_due_date
+           description: "Payment due date"
+           data_type: DATE
+           constraints:
+             - type: not_null
+           tests:
+             - not_null
+
+         - name: invoice_status
+           description: "Invoice lifecycle status, normalized to lowercase"
+           data_type: VARCHAR
+           constraints:
+             - type: not_null
+           tests:
+             - not_null
+             - accepted_values:
+                values: ['paid', 'overdue', 'pending', 'unknown']
+          
+         - name: customer_id
+           description: "Unique customer identifier"
+           data_type: INTEGER
+          
+         - name: customer_name
+           description: "Customer's full name"
+           data_type: VARCHAR
+
+         - name: customer_email
+           description: "Customer's email address"
+           data_type: VARCHAR
+          
+         - name: customer_country
+           description: "Customer's country of residence"
+           data_type: VARCHAR
+          
+         - name: customer_segment
+           description: "Customer segment based on total lifetime spend"
+           data_type: VARCHAR
+         
+         - name: line_item_count
+           description: "Number of line items on the invoice"
+           data_type: INTEGER
+           constraints:
+              -type: not_null
+              -type: check
+               expression: "line_item_count >= 0"
+           tests:
+              - not_null
+              - check:
+                  expression: "line_item_count >= 0"
+          
+         - name: payment_term_days
+           description: "payment term in days calculated as the difference between invoice_due_date and invoice_date"
+           data_type: INTEGER

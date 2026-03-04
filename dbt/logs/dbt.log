@@ -1,0 +1,1461 @@
+[0m02:29:23.832952 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000209644F2660>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000020964AF8F80>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000209663D39E0>]}
+
+
+============================== 02:29:23.857461 | e1920f75-feb1-4ee3-af44-88e5be9ed517 ==============================
+[0m02:29:23.857461 [info ] [MainThread]: Running with dbt=1.11.6
+[0m02:29:23.858461 [debug] [MainThread]: running dbt with arguments {'static_parser': 'True', 'no_print': 'None', 'version_check': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'target_path': 'None', 'printer_width': '80', 'write_json': 'True', 'introspect': 'True', 'log_cache_events': 'False', 'empty': 'None', 'cache_selected_only': 'False', 'fail_fast': 'False', 'debug': 'False', 'log_format': 'default', 'profiles_dir': '.', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'partial_parse': 'True', 'indirect_selection': 'eager', 'invocation_command': 'dbt debug --profiles-dir .', 'use_colors': 'True', 'use_experimental_parser': 'False', 'log_path': 'C:\\tempfolder\\invoice_ledger\\dbt\\logs'}
+[0m02:29:23.921521 [info ] [MainThread]: dbt version: 1.11.6
+[0m02:29:23.922740 [info ] [MainThread]: python version: 3.12.10
+[0m02:29:23.922740 [info ] [MainThread]: python path: C:\tempfolder\invoice_ledger\.venv\Scripts\python.exe
+[0m02:29:23.923754 [info ] [MainThread]: os info: Windows-11-10.0.26200-SP0
+[0m02:29:24.030897 [info ] [MainThread]: Using profiles dir at .
+[0m02:29:24.032901 [info ] [MainThread]: Using profiles.yml file at .\profiles.yml
+[0m02:29:24.033419 [info ] [MainThread]: Using dbt_project.yml file at C:\tempfolder\invoice_ledger\dbt\dbt_project.yml
+[0m02:29:24.035733 [info ] [MainThread]: adapter type: duckdb
+[0m02:29:24.036773 [info ] [MainThread]: adapter version: 1.10.1
+[0m02:29:24.146978 [info ] [MainThread]: Configuration:
+[0m02:29:24.147993 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m02:29:24.148957 [info ] [MainThread]:   dbt_project.yml file [[32mOK found and valid[0m]
+[0m02:29:24.148957 [info ] [MainThread]: Required dependencies:
+[0m02:29:24.149966 [debug] [MainThread]: Executing "git --help"
+[0m02:29:24.175840 [debug] [MainThread]: STDOUT: "b"usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--no-lazy-fetch]\n           [--no-optional-locks] [--no-advice] [--bare] [--git-dir=<path>]\n           [--work-tree=<path>] [--namespace=<name>] [--config-env=<name>=<envvar>]\n           <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone      Clone a repository into a new directory\n   init       Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add        Add file contents to the index\n   mv         Move or rename a file, a directory, or a symlink\n   restore    Restore working tree files\n   rm         Remove files from the working tree and from the index\n\nexamine the history and state (see also: git help revisions)\n   bisect     Use binary search to find the commit that introduced a bug\n   diff       Show changes between commits, commit and working tree, etc\n   grep       Print lines matching a pattern\n   log        Show commit logs\n   show       Show various types of objects\n   status     Show the working tree status\n\ngrow, mark and tweak your common history\n   backfill   Download missing objects in a partial clone\n   branch     List, create, or delete branches\n   commit     Record changes to the repository\n   merge      Join two or more development histories together\n   rebase     Reapply commits on top of another base tip\n   reset      Reset current HEAD to the specified state\n   switch     Switch branches\n   tag        Create, list, delete or verify a tag object signed with GPG\n\ncollaborate (see also: git help workflows)\n   fetch      Download objects and refs from another repository\n   pull       Fetch from and integrate with another repository or a local branch\n   push       Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\nSee 'git help git' for an overview of the system.\n""
+[0m02:29:24.175840 [debug] [MainThread]: STDERR: "b''"
+[0m02:29:24.176846 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m02:29:24.177838 [info ] [MainThread]: Connection:
+[0m02:29:24.177838 [info ] [MainThread]:   database: invoice_warehouse
+[0m02:29:24.178846 [info ] [MainThread]:   schema: dev
+[0m02:29:24.179846 [info ] [MainThread]:   path: ../data/invoice_warehouse.duckdb
+[0m02:29:24.179846 [info ] [MainThread]:   config_options: None
+[0m02:29:24.180838 [info ] [MainThread]:   extensions: None
+[0m02:29:24.180838 [info ] [MainThread]:   settings: {}
+[0m02:29:24.181840 [info ] [MainThread]:   external_root: .
+[0m02:29:24.182839 [info ] [MainThread]:   use_credential_provider: None
+[0m02:29:24.183348 [info ] [MainThread]:   attach: None
+[0m02:29:24.184365 [info ] [MainThread]:   filesystems: None
+[0m02:29:24.185376 [info ] [MainThread]:   remote: None
+[0m02:29:24.185376 [info ] [MainThread]:   plugins: None
+[0m02:29:24.186382 [info ] [MainThread]:   disable_transactions: False
+[0m02:29:24.187383 [info ] [MainThread]: Registered adapter: duckdb=1.10.1
+[0m02:29:24.429445 [debug] [MainThread]: Acquiring new duckdb connection 'debug'
+[0m02:29:24.559160 [debug] [MainThread]: Using duckdb connection "debug"
+[0m02:29:24.559160 [debug] [MainThread]: On debug: select 1 as id
+[0m02:29:24.560160 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m02:29:24.701035 [debug] [MainThread]: DuckDB adapter: duckdb error: IO Error: Cannot open file "c:\tempfolder\invoice_ledger\dbt\..\data\invoice_warehouse.duckdb": The process cannot access the file because it is being used by another process.
+
+File is already open in 
+C:\Users\Zuhaib Asad\AppData\Local\Programs\Microsoft VS Code\Code.exe (PID 8748)
+[0m02:29:24.701035 [debug] [MainThread]: DuckDB adapter: Error running SQL: select 1 as id
+[0m02:29:24.701035 [debug] [MainThread]: DuckDB adapter: Rolling back transaction.
+[0m02:29:24.702036 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m02:29:24.812143 [info ] [MainThread]:   Connection test: [[31mERROR[0m]
+
+[0m02:29:24.813133 [info ] [MainThread]: [31m1 check failed:[0m
+[0m02:29:24.813652 [info ] [MainThread]: dbt was unable to connect to the specified database.
+The database returned the following error:
+
+  >IO Error: Cannot open file "c:\tempfolder\invoice_ledger\dbt\..\data\invoice_warehouse.duckdb": The process cannot access the file because it is being used by another process.
+
+File is already open in 
+C:\Users\Zuhaib Asad\AppData\Local\Programs\Microsoft VS Code\Code.exe (PID 8748)
+
+Check your database credentials and try again. For more information, visit:
+https://docs.getdbt.com/docs/configure-your-profile
+
+
+[0m02:29:24.814660 [debug] [MainThread]: Command `dbt debug` failed at 02:29:24.814660 after 1.14 seconds
+[0m02:29:24.814660 [debug] [MainThread]: Connection 'debug' was properly closed.
+[0m02:29:24.815666 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000209667015E0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000209647F9DC0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000020966723500>]}
+[0m02:29:24.815666 [debug] [MainThread]: Flushing usage events
+[0m02:29:26.345747 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m02:30:08.509872 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D600D62FC0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D60286DFA0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D602483770>]}
+
+
+============================== 02:30:08.515448 | 58b71c51-ac18-44da-be39-5174e11869c0 ==============================
+[0m02:30:08.515448 [info ] [MainThread]: Running with dbt=1.11.6
+[0m02:30:08.516444 [debug] [MainThread]: running dbt with arguments {'version_check': 'True', 'no_print': 'None', 'static_parser': 'True', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'printer_width': '80', 'write_json': 'True', 'introspect': 'True', 'log_cache_events': 'False', 'empty': 'None', 'cache_selected_only': 'False', 'log_format': 'default', 'debug': 'False', 'fail_fast': 'False', 'profiles_dir': '.', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'partial_parse': 'True', 'indirect_selection': 'eager', 'use_colors': 'True', 'invocation_command': 'dbt debug --profiles-dir .', 'use_experimental_parser': 'False', 'log_path': 'C:\\tempfolder\\invoice_ledger\\dbt\\logs'}
+[0m02:30:08.531215 [info ] [MainThread]: dbt version: 1.11.6
+[0m02:30:08.531215 [info ] [MainThread]: python version: 3.12.10
+[0m02:30:08.532732 [info ] [MainThread]: python path: C:\tempfolder\invoice_ledger\.venv\Scripts\python.exe
+[0m02:30:08.533745 [info ] [MainThread]: os info: Windows-11-10.0.26200-SP0
+[0m02:30:08.646397 [info ] [MainThread]: Using profiles dir at .
+[0m02:30:08.647367 [info ] [MainThread]: Using profiles.yml file at .\profiles.yml
+[0m02:30:08.648362 [info ] [MainThread]: Using dbt_project.yml file at C:\tempfolder\invoice_ledger\dbt\dbt_project.yml
+[0m02:30:08.650361 [info ] [MainThread]: adapter type: duckdb
+[0m02:30:08.651363 [info ] [MainThread]: adapter version: 1.10.1
+[0m02:30:08.753746 [info ] [MainThread]: Configuration:
+[0m02:30:08.754749 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m02:30:08.754749 [info ] [MainThread]:   dbt_project.yml file [[32mOK found and valid[0m]
+[0m02:30:08.755747 [info ] [MainThread]: Required dependencies:
+[0m02:30:08.755747 [debug] [MainThread]: Executing "git --help"
+[0m02:30:08.780728 [debug] [MainThread]: STDOUT: "b"usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--no-lazy-fetch]\n           [--no-optional-locks] [--no-advice] [--bare] [--git-dir=<path>]\n           [--work-tree=<path>] [--namespace=<name>] [--config-env=<name>=<envvar>]\n           <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone      Clone a repository into a new directory\n   init       Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add        Add file contents to the index\n   mv         Move or rename a file, a directory, or a symlink\n   restore    Restore working tree files\n   rm         Remove files from the working tree and from the index\n\nexamine the history and state (see also: git help revisions)\n   bisect     Use binary search to find the commit that introduced a bug\n   diff       Show changes between commits, commit and working tree, etc\n   grep       Print lines matching a pattern\n   log        Show commit logs\n   show       Show various types of objects\n   status     Show the working tree status\n\ngrow, mark and tweak your common history\n   backfill   Download missing objects in a partial clone\n   branch     List, create, or delete branches\n   commit     Record changes to the repository\n   merge      Join two or more development histories together\n   rebase     Reapply commits on top of another base tip\n   reset      Reset current HEAD to the specified state\n   switch     Switch branches\n   tag        Create, list, delete or verify a tag object signed with GPG\n\ncollaborate (see also: git help workflows)\n   fetch      Download objects and refs from another repository\n   pull       Fetch from and integrate with another repository or a local branch\n   push       Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\nSee 'git help git' for an overview of the system.\n""
+[0m02:30:08.781763 [debug] [MainThread]: STDERR: "b''"
+[0m02:30:08.781763 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m02:30:08.782744 [info ] [MainThread]: Connection:
+[0m02:30:08.784115 [info ] [MainThread]:   database: invoice_warehouse
+[0m02:30:08.784115 [info ] [MainThread]:   schema: dev
+[0m02:30:08.785370 [info ] [MainThread]:   path: ../data/invoice_warehouse.duckdb
+[0m02:30:08.785370 [info ] [MainThread]:   config_options: None
+[0m02:30:08.786378 [info ] [MainThread]:   extensions: None
+[0m02:30:08.786378 [info ] [MainThread]:   settings: {}
+[0m02:30:08.787376 [info ] [MainThread]:   external_root: .
+[0m02:30:08.788368 [info ] [MainThread]:   use_credential_provider: None
+[0m02:30:08.788368 [info ] [MainThread]:   attach: None
+[0m02:30:08.789370 [info ] [MainThread]:   filesystems: None
+[0m02:30:08.789370 [info ] [MainThread]:   remote: None
+[0m02:30:08.790375 [info ] [MainThread]:   plugins: None
+[0m02:30:08.791375 [info ] [MainThread]:   disable_transactions: False
+[0m02:30:08.791375 [info ] [MainThread]: Registered adapter: duckdb=1.10.1
+[0m02:30:08.992923 [debug] [MainThread]: Acquiring new duckdb connection 'debug'
+[0m02:30:09.043298 [debug] [MainThread]: Using duckdb connection "debug"
+[0m02:30:09.043298 [debug] [MainThread]: On debug: select 1 as id
+[0m02:30:09.044328 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m02:30:09.061168 [debug] [MainThread]: SQL status: OK in 0.017 seconds
+[0m02:30:09.061713 [debug] [MainThread]: On debug: Close
+[0m02:30:09.062273 [info ] [MainThread]:   Connection test: [[32mOK connection ok[0m]
+
+[0m02:30:09.062795 [info ] [MainThread]: [32mAll checks passed![0m
+[0m02:30:09.063979 [debug] [MainThread]: Command `dbt debug` succeeded at 02:30:09.063979 after 0.72 seconds
+[0m02:30:09.064526 [debug] [MainThread]: Connection 'debug' was properly closed.
+[0m02:30:09.065065 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D67D7492E0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D602B8C440>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D602046780>]}
+[0m02:30:09.065624 [debug] [MainThread]: Flushing usage events
+[0m02:30:10.216240 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m02:46:28.393213 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002ACEEEC53D0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002ACEEEC60C0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002ACEEEC54C0>]}
+
+
+============================== 02:46:28.397226 | 8060622c-837b-423e-b72c-15b21fa107e9 ==============================
+[0m02:46:28.397226 [info ] [MainThread]: Running with dbt=1.11.6
+[0m02:46:28.398225 [debug] [MainThread]: running dbt with arguments {'static_parser': 'True', 'no_print': 'None', 'version_check': 'True', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'printer_width': '80', 'write_json': 'True', 'empty': 'None', 'log_cache_events': 'False', 'introspect': 'True', 'cache_selected_only': 'False', 'log_format': 'default', 'debug': 'False', 'fail_fast': 'False', 'partial_parse': 'True', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'profiles_dir': '.', 'indirect_selection': 'eager', 'use_colors': 'True', 'invocation_command': 'dbt debug --profiles-dir .', 'use_experimental_parser': 'False', 'log_path': 'C:\\tempfolder\\invoice_ledger\\dbt\\logs'}
+[0m02:46:28.406994 [info ] [MainThread]: dbt version: 1.11.6
+[0m02:46:28.408476 [info ] [MainThread]: python version: 3.12.10
+[0m02:46:28.408476 [info ] [MainThread]: python path: C:\tempfolder\invoice_ledger\.venv\Scripts\python.exe
+[0m02:46:28.409493 [info ] [MainThread]: os info: Windows-11-10.0.26200-SP0
+[0m02:46:28.486640 [info ] [MainThread]: Using profiles dir at .
+[0m02:46:28.486640 [info ] [MainThread]: Using profiles.yml file at .\profiles.yml
+[0m02:46:28.487641 [info ] [MainThread]: Using dbt_project.yml file at C:\tempfolder\invoice_ledger\dbt\dbt_project.yml
+[0m02:46:28.489159 [info ] [MainThread]: adapter type: duckdb
+[0m02:46:28.489159 [info ] [MainThread]: adapter version: 1.10.1
+[0m02:46:28.561041 [info ] [MainThread]: Configuration:
+[0m02:46:28.562038 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m02:46:28.562038 [info ] [MainThread]:   dbt_project.yml file [[32mOK found and valid[0m]
+[0m02:46:28.563037 [info ] [MainThread]: Required dependencies:
+[0m02:46:28.563037 [debug] [MainThread]: Executing "git --help"
+[0m02:46:28.581405 [debug] [MainThread]: STDOUT: "b"usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--no-lazy-fetch]\n           [--no-optional-locks] [--no-advice] [--bare] [--git-dir=<path>]\n           [--work-tree=<path>] [--namespace=<name>] [--config-env=<name>=<envvar>]\n           <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone      Clone a repository into a new directory\n   init       Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add        Add file contents to the index\n   mv         Move or rename a file, a directory, or a symlink\n   restore    Restore working tree files\n   rm         Remove files from the working tree and from the index\n\nexamine the history and state (see also: git help revisions)\n   bisect     Use binary search to find the commit that introduced a bug\n   diff       Show changes between commits, commit and working tree, etc\n   grep       Print lines matching a pattern\n   log        Show commit logs\n   show       Show various types of objects\n   status     Show the working tree status\n\ngrow, mark and tweak your common history\n   backfill   Download missing objects in a partial clone\n   branch     List, create, or delete branches\n   commit     Record changes to the repository\n   merge      Join two or more development histories together\n   rebase     Reapply commits on top of another base tip\n   reset      Reset current HEAD to the specified state\n   switch     Switch branches\n   tag        Create, list, delete or verify a tag object signed with GPG\n\ncollaborate (see also: git help workflows)\n   fetch      Download objects and refs from another repository\n   pull       Fetch from and integrate with another repository or a local branch\n   push       Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\nSee 'git help git' for an overview of the system.\n""
+[0m02:46:28.581405 [debug] [MainThread]: STDERR: "b''"
+[0m02:46:28.582415 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m02:46:28.582415 [info ] [MainThread]: Connection:
+[0m02:46:28.582415 [info ] [MainThread]:   database: invoice_warehouse
+[0m02:46:28.583846 [info ] [MainThread]:   schema: dev
+[0m02:46:28.583846 [info ] [MainThread]:   path: ../data/invoice_warehouse.duckdb
+[0m02:46:28.583846 [info ] [MainThread]:   config_options: None
+[0m02:46:28.584858 [info ] [MainThread]:   extensions: None
+[0m02:46:28.584858 [info ] [MainThread]:   settings: {}
+[0m02:46:28.584858 [info ] [MainThread]:   external_root: .
+[0m02:46:28.585892 [info ] [MainThread]:   use_credential_provider: None
+[0m02:46:28.585892 [info ] [MainThread]:   attach: None
+[0m02:46:28.585892 [info ] [MainThread]:   filesystems: None
+[0m02:46:28.586884 [info ] [MainThread]:   remote: None
+[0m02:46:28.586884 [info ] [MainThread]:   plugins: None
+[0m02:46:28.586884 [info ] [MainThread]:   disable_transactions: False
+[0m02:46:28.586884 [info ] [MainThread]: Registered adapter: duckdb=1.10.1
+[0m02:46:28.728659 [debug] [MainThread]: Acquiring new duckdb connection 'debug'
+[0m02:46:28.771853 [debug] [MainThread]: Using duckdb connection "debug"
+[0m02:46:28.771853 [debug] [MainThread]: On debug: select 1 as id
+[0m02:46:28.771853 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m02:46:28.784504 [debug] [MainThread]: SQL status: OK in 0.012 seconds
+[0m02:46:28.785477 [debug] [MainThread]: On debug: Close
+[0m02:46:28.785477 [info ] [MainThread]:   Connection test: [[32mOK connection ok[0m]
+
+[0m02:46:28.786514 [info ] [MainThread]: [32mAll checks passed![0m
+[0m02:46:28.786514 [debug] [MainThread]: Command `dbt debug` succeeded at 02:46:28.786514 after 0.53 seconds
+[0m02:46:28.787474 [debug] [MainThread]: Connection 'debug' was properly closed.
+[0m02:46:28.787474 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002ACF02AFAA0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002ACF052DF10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002ACF03D1310>]}
+[0m02:46:28.787474 [debug] [MainThread]: Flushing usage events
+[0m02:46:30.099103 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m02:46:34.409920 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000207DBDECF50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000207DFAF3770>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000207E10690D0>]}
+
+
+============================== 02:46:34.417385 | f2ad4ca2-5bb5-4d83-96a4-7f435d0337f6 ==============================
+[0m02:46:34.417385 [info ] [MainThread]: Running with dbt=1.11.6
+[0m02:46:34.418884 [debug] [MainThread]: running dbt with arguments {'version_check': 'True', 'no_print': 'None', 'static_parser': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'target_path': 'None', 'printer_width': '80', 'write_json': 'True', 'empty': 'None', 'log_cache_events': 'False', 'introspect': 'True', 'cache_selected_only': 'False', 'fail_fast': 'False', 'debug': 'False', 'log_format': 'default', 'profiles_dir': '.', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'partial_parse': 'True', 'invocation_command': 'dbt debug --profiles-dir .', 'indirect_selection': 'eager', 'use_colors': 'True', 'use_experimental_parser': 'False', 'log_path': 'C:\\tempfolder\\invoice_ledger\\dbt\\logs'}
+[0m02:46:34.436685 [info ] [MainThread]: dbt version: 1.11.6
+[0m02:46:34.437734 [info ] [MainThread]: python version: 3.12.10
+[0m02:46:34.437734 [info ] [MainThread]: python path: C:\tempfolder\invoice_ledger\.venv\Scripts\python.exe
+[0m02:46:34.438702 [info ] [MainThread]: os info: Windows-11-10.0.26200-SP0
+[0m02:46:34.541574 [info ] [MainThread]: Using profiles dir at .
+[0m02:46:34.542563 [info ] [MainThread]: Using profiles.yml file at .\profiles.yml
+[0m02:46:34.542563 [info ] [MainThread]: Using dbt_project.yml file at C:\tempfolder\invoice_ledger\dbt\dbt_project.yml
+[0m02:46:34.544559 [info ] [MainThread]: adapter type: duckdb
+[0m02:46:34.545583 [info ] [MainThread]: adapter version: 1.10.1
+[0m02:46:34.678703 [info ] [MainThread]: Configuration:
+[0m02:46:34.679720 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m02:46:34.679720 [info ] [MainThread]:   dbt_project.yml file [[32mOK found and valid[0m]
+[0m02:46:34.680769 [info ] [MainThread]: Required dependencies:
+[0m02:46:34.681723 [debug] [MainThread]: Executing "git --help"
+[0m02:46:34.704624 [debug] [MainThread]: STDOUT: "b"usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--no-lazy-fetch]\n           [--no-optional-locks] [--no-advice] [--bare] [--git-dir=<path>]\n           [--work-tree=<path>] [--namespace=<name>] [--config-env=<name>=<envvar>]\n           <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone      Clone a repository into a new directory\n   init       Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add        Add file contents to the index\n   mv         Move or rename a file, a directory, or a symlink\n   restore    Restore working tree files\n   rm         Remove files from the working tree and from the index\n\nexamine the history and state (see also: git help revisions)\n   bisect     Use binary search to find the commit that introduced a bug\n   diff       Show changes between commits, commit and working tree, etc\n   grep       Print lines matching a pattern\n   log        Show commit logs\n   show       Show various types of objects\n   status     Show the working tree status\n\ngrow, mark and tweak your common history\n   backfill   Download missing objects in a partial clone\n   branch     List, create, or delete branches\n   commit     Record changes to the repository\n   merge      Join two or more development histories together\n   rebase     Reapply commits on top of another base tip\n   reset      Reset current HEAD to the specified state\n   switch     Switch branches\n   tag        Create, list, delete or verify a tag object signed with GPG\n\ncollaborate (see also: git help workflows)\n   fetch      Download objects and refs from another repository\n   pull       Fetch from and integrate with another repository or a local branch\n   push       Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\nSee 'git help git' for an overview of the system.\n""
+[0m02:46:34.705620 [debug] [MainThread]: STDERR: "b''"
+[0m02:46:34.706624 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m02:46:34.707631 [info ] [MainThread]: Connection:
+[0m02:46:34.707631 [info ] [MainThread]:   database: invoice_warehouse
+[0m02:46:34.708620 [info ] [MainThread]:   schema: dev
+[0m02:46:34.709139 [info ] [MainThread]:   path: ../data/invoice_warehouse.duckdb
+[0m02:46:34.709139 [info ] [MainThread]:   config_options: None
+[0m02:46:34.710142 [info ] [MainThread]:   extensions: None
+[0m02:46:34.710142 [info ] [MainThread]:   settings: {}
+[0m02:46:34.711150 [info ] [MainThread]:   external_root: .
+[0m02:46:34.712138 [info ] [MainThread]:   use_credential_provider: None
+[0m02:46:34.712138 [info ] [MainThread]:   attach: None
+[0m02:46:34.713145 [info ] [MainThread]:   filesystems: None
+[0m02:46:34.713145 [info ] [MainThread]:   remote: None
+[0m02:46:34.714141 [info ] [MainThread]:   plugins: None
+[0m02:46:34.714141 [info ] [MainThread]:   disable_transactions: False
+[0m02:46:34.715146 [info ] [MainThread]: Registered adapter: duckdb=1.10.1
+[0m02:46:34.928444 [debug] [MainThread]: Acquiring new duckdb connection 'debug'
+[0m02:46:34.973705 [debug] [MainThread]: Using duckdb connection "debug"
+[0m02:46:34.974707 [debug] [MainThread]: On debug: select 1 as id
+[0m02:46:34.974707 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m02:46:34.989873 [debug] [MainThread]: SQL status: OK in 0.014 seconds
+[0m02:46:34.989873 [debug] [MainThread]: On debug: Close
+[0m02:46:34.990885 [info ] [MainThread]:   Connection test: [[32mOK connection ok[0m]
+
+[0m02:46:34.991931 [info ] [MainThread]: [32mAll checks passed![0m
+[0m02:46:34.992885 [debug] [MainThread]: Command `dbt debug` succeeded at 02:46:34.992885 after 0.70 seconds
+[0m02:46:34.992885 [debug] [MainThread]: Connection 'debug' was properly closed.
+[0m02:46:34.992885 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000207E1002F30>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000207DFB595E0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000207DF463FB0>]}
+[0m02:46:34.993885 [debug] [MainThread]: Flushing usage events
+[0m02:46:36.158683 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m02:47:23.230784 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000020D0C908B90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000020D0FDB33E0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000020D115331A0>]}
+
+
+============================== 02:47:23.236807 | 43c363ad-0efd-46d8-8bfa-38a1e1157006 ==============================
+[0m02:47:23.236807 [info ] [MainThread]: Running with dbt=1.11.6
+[0m02:47:23.236807 [debug] [MainThread]: running dbt with arguments {'version_check': 'True', 'no_print': 'None', 'static_parser': 'True', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'printer_width': '80', 'write_json': 'True', 'empty': 'False', 'log_cache_events': 'False', 'introspect': 'True', 'cache_selected_only': 'False', 'log_format': 'default', 'debug': 'False', 'fail_fast': 'False', 'partial_parse': 'True', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'profiles_dir': '.', 'invocation_command': 'dbt compile --profiles-dir . --select stg_invoices', 'indirect_selection': 'eager', 'use_colors': 'True', 'use_experimental_parser': 'False', 'log_path': 'C:\\tempfolder\\invoice_ledger\\dbt\\logs'}
+[0m02:47:23.470593 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '43c363ad-0efd-46d8-8bfa-38a1e1157006', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000020D11533110>]}
+[0m02:47:23.536435 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '43c363ad-0efd-46d8-8bfa-38a1e1157006', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000020D1137FC20>]}
+[0m02:47:23.539015 [info ] [MainThread]: Registered adapter: duckdb=1.10.1
+[0m02:47:23.739362 [debug] [MainThread]: checksum: ec27062d18352e9cfca161c166fcc73d2201661a23a3cf3c89196a27f32cfcb8, vars: {}, profile: , target: , version: 1.11.6
+[0m02:47:23.740352 [info ] [MainThread]: Unable to do partial parsing because saved manifest not found. Starting full parse.
+[0m02:47:23.740352 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'partial_parser', 'label': '43c363ad-0efd-46d8-8bfa-38a1e1157006', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000020D11E199A0>]}
+[0m02:47:24.653205 [error] [MainThread]: Encountered an error:
+Compilation Error
+  Model 'model.invoice_ledger.stg_invoices' (models\staging\stg_invoices.sql) depends on a source named 'raw.invoices' which was not found
+[0m02:47:24.654199 [debug] [MainThread]: Command `dbt compile` failed at 02:47:24.654199 after 1.56 seconds
+[0m02:47:24.654734 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000020D11590950>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000020D132335C0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000020D11E19A30>]}
+[0m02:47:24.654734 [debug] [MainThread]: Flushing usage events
+[0m02:47:25.774502 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m02:50:02.071671 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000025865838AA0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002586A42DCA0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002586A42F2C0>]}
+
+
+============================== 02:50:02.076645 | 0924f636-d93f-4683-926f-6d66e1b18a8a ==============================
+[0m02:50:02.076645 [info ] [MainThread]: Running with dbt=1.11.6
+[0m02:50:02.077614 [debug] [MainThread]: running dbt with arguments {'static_parser': 'True', 'no_print': 'None', 'version_check': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'target_path': 'None', 'printer_width': '80', 'write_json': 'True', 'empty': 'False', 'log_cache_events': 'False', 'introspect': 'True', 'cache_selected_only': 'False', 'fail_fast': 'False', 'debug': 'False', 'log_format': 'default', 'profiles_dir': '.', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'partial_parse': 'True', 'invocation_command': 'dbt compile --profiles-dir . --select stg_invoices', 'use_colors': 'True', 'indirect_selection': 'eager', 'use_experimental_parser': 'False', 'log_path': 'C:\\tempfolder\\invoice_ledger\\dbt\\logs'}
+[0m02:50:02.324254 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '0924f636-d93f-4683-926f-6d66e1b18a8a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002586AC2D580>]}
+[0m02:50:02.386218 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '0924f636-d93f-4683-926f-6d66e1b18a8a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002586ABA72C0>]}
+[0m02:50:02.388791 [info ] [MainThread]: Registered adapter: duckdb=1.10.1
+[0m02:50:02.609274 [debug] [MainThread]: checksum: ec27062d18352e9cfca161c166fcc73d2201661a23a3cf3c89196a27f32cfcb8, vars: {}, profile: , target: , version: 1.11.6
+[0m02:50:02.610789 [info ] [MainThread]: Unable to do partial parsing because saved manifest not found. Starting full parse.
+[0m02:50:02.611799 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'partial_parser', 'label': '0924f636-d93f-4683-926f-6d66e1b18a8a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002586AA9A3F0>]}
+[0m02:50:03.715124 [warn ] [MainThread]: [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+There are 2 unused configuration paths:
+- models.invoice_ledger.intermediate
+- models.invoice_ledger.mart
+[0m02:50:03.723616 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '0924f636-d93f-4683-926f-6d66e1b18a8a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000025865A20FB0>]}
+[0m02:50:03.779000 [debug] [MainThread]: Wrote artifact WritableManifest to C:\tempfolder\invoice_ledger\dbt\target\manifest.json
+[0m02:50:03.789302 [debug] [MainThread]: Wrote artifact SemanticManifest to C:\tempfolder\invoice_ledger\dbt\target\semantic_manifest.json
+[0m02:50:03.889970 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '0924f636-d93f-4683-926f-6d66e1b18a8a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002586C26D130>]}
+[0m02:50:03.889970 [info ] [MainThread]: Found 3 models, 3 sources, 474 macros
+[0m02:50:03.890981 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '0924f636-d93f-4683-926f-6d66e1b18a8a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002586AA98080>]}
+[0m02:50:03.891981 [info ] [MainThread]: 
+[0m02:50:03.892975 [info ] [MainThread]: Concurrency: 1 threads (target='dev')
+[0m02:50:03.892975 [info ] [MainThread]: 
+[0m02:50:03.893981 [debug] [MainThread]: Acquiring new duckdb connection 'master'
+[0m02:50:03.898506 [debug] [ThreadPool]: Acquiring new duckdb connection 'list_invoice_warehouse_dev_dev'
+[0m02:50:03.957729 [debug] [ThreadPool]: Using duckdb connection "list_invoice_warehouse_dev_dev"
+[0m02:50:03.958245 [debug] [ThreadPool]: On list_invoice_warehouse_dev_dev: BEGIN
+[0m02:50:03.958245 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m02:50:03.973640 [debug] [ThreadPool]: SQL status: OK in 0.016 seconds
+[0m02:50:03.974661 [debug] [ThreadPool]: Using duckdb connection "list_invoice_warehouse_dev_dev"
+[0m02:50:03.974661 [debug] [ThreadPool]: On list_invoice_warehouse_dev_dev: /* {"app": "dbt", "dbt_version": "1.11.6", "profile_name": "invoice_ledger", "target_name": "dev", "connection_name": "list_invoice_warehouse_dev_dev"} */
+select
+      'invoice_warehouse' as database,
+      table_name as name,
+      table_schema as schema,
+      CASE table_type
+        WHEN 'BASE TABLE' THEN 'table'
+        WHEN 'VIEW' THEN 'view'
+        WHEN 'LOCAL TEMPORARY' THEN 'table'
+        END as type
+    from system.information_schema.tables
+    where lower(table_schema) = 'dev_dev'
+    and lower(table_catalog) = 'invoice_warehouse'
+  
+[0m02:50:03.990483 [debug] [ThreadPool]: SQL status: OK in 0.016 seconds
+[0m02:50:03.992511 [debug] [ThreadPool]: On list_invoice_warehouse_dev_dev: ROLLBACK
+[0m02:50:03.993488 [debug] [ThreadPool]: Failed to rollback 'list_invoice_warehouse_dev_dev'
+[0m02:50:03.993488 [debug] [ThreadPool]: On list_invoice_warehouse_dev_dev: Close
+[0m02:50:03.994486 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '0924f636-d93f-4683-926f-6d66e1b18a8a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002586C229700>]}
+[0m02:50:04.036145 [debug] [Thread-1 (]: Began running node model.invoice_ledger.stg_invoices
+[0m02:50:04.036145 [debug] [Thread-1 (]: Acquiring new duckdb connection 'model.invoice_ledger.stg_invoices'
+[0m02:50:04.037662 [debug] [Thread-1 (]: Began compiling node model.invoice_ledger.stg_invoices
+[0m02:50:04.044677 [debug] [Thread-1 (]: Writing injected SQL for node "model.invoice_ledger.stg_invoices"
+[0m02:50:04.048187 [debug] [Thread-1 (]: Began executing node model.invoice_ledger.stg_invoices
+[0m02:50:04.049197 [debug] [Thread-1 (]: Finished running node model.invoice_ledger.stg_invoices
+[0m02:50:04.050211 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m02:50:04.051236 [debug] [MainThread]: Connection 'list_invoice_warehouse_dev_dev' was properly closed.
+[0m02:50:04.051236 [debug] [MainThread]: Connection 'model.invoice_ledger.stg_invoices' was properly closed.
+[0m02:50:04.052206 [debug] [MainThread]: Command end result
+[0m02:50:04.067562 [debug] [MainThread]: Wrote artifact WritableManifest to C:\tempfolder\invoice_ledger\dbt\target\manifest.json
+[0m02:50:04.069597 [debug] [MainThread]: Wrote artifact SemanticManifest to C:\tempfolder\invoice_ledger\dbt\target\semantic_manifest.json
+[0m02:50:04.076578 [debug] [MainThread]: Wrote artifact RunExecutionResult to C:\tempfolder\invoice_ledger\dbt\target\run_results.json
+[0m02:50:04.077579 [info ] [MainThread]: Compiled node 'stg_invoices' is:
+SELECT *
+FROM "invoice_warehouse"."raw"."invoices"
+[0m02:50:04.079240 [debug] [MainThread]: Command `dbt compile` succeeded at 02:50:04.079240 after 2.13 seconds
+[0m02:50:04.079240 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002586A1E2810>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002586C156300>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002586AA56C60>]}
+[0m02:50:04.079240 [debug] [MainThread]: Flushing usage events
+[0m02:50:05.522249 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m02:52:17.594262 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022A3892F350>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022A34C69010>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022A3892D370>]}
+
+
+============================== 02:52:17.599850 | dc7fab22-f719-434e-b5ec-7b6375a1ef03 ==============================
+[0m02:52:17.599850 [info ] [MainThread]: Running with dbt=1.11.6
+[0m02:52:17.600847 [debug] [MainThread]: running dbt with arguments {'version_check': 'True', 'no_print': 'None', 'static_parser': 'True', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'printer_width': '80', 'write_json': 'True', 'introspect': 'True', 'log_cache_events': 'False', 'empty': 'False', 'cache_selected_only': 'False', 'log_format': 'default', 'debug': 'False', 'fail_fast': 'False', 'profiles_dir': '.', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'partial_parse': 'True', 'indirect_selection': 'eager', 'use_colors': 'True', 'invocation_command': 'dbt run --profiles-dir . --select stg_invoices', 'use_experimental_parser': 'False', 'log_path': 'C:\\tempfolder\\invoice_ledger\\dbt\\logs'}
+[0m02:52:17.816811 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'dc7fab22-f719-434e-b5ec-7b6375a1ef03', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022A382071D0>]}
+[0m02:52:17.873929 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'dc7fab22-f719-434e-b5ec-7b6375a1ef03', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022A38204110>]}
+[0m02:52:17.876276 [info ] [MainThread]: Registered adapter: duckdb=1.10.1
+[0m02:52:18.098761 [debug] [MainThread]: checksum: ec27062d18352e9cfca161c166fcc73d2201661a23a3cf3c89196a27f32cfcb8, vars: {}, profile: , target: , version: 1.11.6
+[0m02:52:18.231763 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m02:52:18.231763 [debug] [MainThread]: Nothing changed, skipping partial parsing.
+[0m02:52:18.231763 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m02:52:18.237312 [warn ] [MainThread]: [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+There are 2 unused configuration paths:
+- models.invoice_ledger.mart
+- models.invoice_ledger.intermediate
+[0m02:52:18.268322 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'dc7fab22-f719-434e-b5ec-7b6375a1ef03', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022A3A1AB5F0>]}
+[0m02:52:18.325149 [debug] [MainThread]: Wrote artifact WritableManifest to C:\tempfolder\invoice_ledger\dbt\target\manifest.json
+[0m02:52:18.327140 [debug] [MainThread]: Wrote artifact SemanticManifest to C:\tempfolder\invoice_ledger\dbt\target\semantic_manifest.json
+[0m02:52:18.361869 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'dc7fab22-f719-434e-b5ec-7b6375a1ef03', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022A3A3E5D60>]}
+[0m02:52:18.362869 [info ] [MainThread]: Found 3 models, 3 sources, 474 macros
+[0m02:52:18.363868 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'dc7fab22-f719-434e-b5ec-7b6375a1ef03', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022A3A495B20>]}
+[0m02:52:18.364879 [info ] [MainThread]: 
+[0m02:52:18.365876 [info ] [MainThread]: Concurrency: 1 threads (target='dev')
+[0m02:52:18.366867 [info ] [MainThread]: 
+[0m02:52:18.367382 [debug] [MainThread]: Acquiring new duckdb connection 'master'
+[0m02:52:18.368396 [debug] [ThreadPool]: Acquiring new duckdb connection 'list_invoice_warehouse'
+[0m02:52:18.433943 [debug] [ThreadPool]: Using duckdb connection "list_invoice_warehouse"
+[0m02:52:18.434944 [debug] [ThreadPool]: On list_invoice_warehouse: /* {"app": "dbt", "dbt_version": "1.11.6", "profile_name": "invoice_ledger", "target_name": "dev", "connection_name": "list_invoice_warehouse"} */
+
+    
+    select schema_name
+    from system.information_schema.schemata
+    
+    where lower(catalog_name) = '"invoice_warehouse"'
+    
+  
+  
+[0m02:52:18.434944 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m02:52:18.574116 [debug] [ThreadPool]: DuckDB adapter: duckdb error: IO Error: Cannot open file "c:\tempfolder\invoice_ledger\dbt\..\data\invoice_warehouse.duckdb": The process cannot access the file because it is being used by another process.
+
+File is already open in 
+C:\Users\Zuhaib Asad\AppData\Local\Programs\Microsoft VS Code\Code.exe (PID 8748)
+[0m02:52:18.575085 [debug] [ThreadPool]: DuckDB adapter: Error running SQL: /* {"app": "dbt", "dbt_version": "1.11.6", "profile_name": "invoice_ledger", "target_name": "dev", "connection_name": "list_invoice_warehouse"} */
+
+    
+    select schema_name
+    from system.information_schema.schemata
+    
+    where lower(catalog_name) = '"invoice_warehouse"'
+    
+  
+  
+[0m02:52:18.575085 [debug] [ThreadPool]: DuckDB adapter: Rolling back transaction.
+[0m02:52:18.575085 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m02:52:18.703860 [debug] [ThreadPool]: DuckDB adapter: duckdb error: IO Error: Cannot open file "c:\tempfolder\invoice_ledger\dbt\..\data\invoice_warehouse.duckdb": The process cannot access the file because it is being used by another process.
+
+File is already open in 
+C:\Users\Zuhaib Asad\AppData\Local\Programs\Microsoft VS Code\Code.exe (PID 8748)
+[0m02:52:18.704837 [debug] [ThreadPool]: DuckDB adapter: Error running SQL: macro list_schemas
+[0m02:52:18.704837 [debug] [ThreadPool]: DuckDB adapter: Rolling back transaction.
+[0m02:52:18.704837 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m02:52:18.845011 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m02:52:18.845011 [debug] [MainThread]: Connection 'list_invoice_warehouse' was properly closed.
+[0m02:52:18.845011 [info ] [MainThread]: 
+[0m02:52:18.846520 [info ] [MainThread]: Finished running  in 0 hours 0 minutes and 0.48 seconds (0.48s).
+[0m02:52:18.847080 [error] [MainThread]: Encountered an error:
+IO Error: Cannot open file "c:\tempfolder\invoice_ledger\dbt\..\data\invoice_warehouse.duckdb": The process cannot access the file because it is being used by another process.
+
+File is already open in 
+C:\Users\Zuhaib Asad\AppData\Local\Programs\Microsoft VS Code\Code.exe (PID 8748)
+[0m02:52:18.855097 [error] [MainThread]: Traceback (most recent call last):
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\dbt\adapters\duckdb\connections.py", line 95, in exception_handler
+    yield
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\dbt\adapters\sql\connections.py", line 147, in add_query
+    cursor = connection.handle.cursor()
+             ^^^^^^^^^^^^^^^^^
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\dbt\adapters\contracts\connection.py", line 96, in handle
+    self._handle.resolve(self)
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\dbt\adapters\contracts\connection.py", line 120, in resolve
+    return self.opener(connection)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\dbt\adapters\duckdb\connections.py", line 53, in open
+    connection.handle = cls._ENV.handle()
+                        ^^^^^^^^^^^^^^^^^
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\dbt\adapters\duckdb\environments\local.py", line 75, in handle
+    self.conn = self.initialize_db(self.creds, self._plugins)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\dbt\adapters\duckdb\environments\__init__.py", line 159, in initialize_db
+    conn = duckdb.connect(creds.path, read_only=False, config=config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_duckdb.IOException: IO Error: Cannot open file "c:\tempfolder\invoice_ledger\dbt\..\data\invoice_warehouse.duckdb": The process cannot access the file because it is being used by another process.
+
+File is already open in 
+C:\Users\Zuhaib Asad\AppData\Local\Programs\Microsoft VS Code\Code.exe (PID 8748)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\dbt\adapters\duckdb\connections.py", line 95, in exception_handler
+    yield
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\dbt\adapters\base\impl.py", line 1320, in execute_macro
+    result = macro_function(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\dbt_common\clients\jinja.py", line 427, in __call__
+    return self.call_macro(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\dbt_common\clients\jinja.py", line 395, in call_macro
+    return macro(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\jinja2\runtime.py", line 770, in __call__
+    return self._invoke(arguments, autoescape)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\jinja2\runtime.py", line 784, in _invoke
+    rv = self._func(*arguments)
+         ^^^^^^^^^^^^^^^^^^^^^^
+  File "<template>", line 20, in macro
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\jinja2\sandbox.py", line 401, in call
+    return __context.call(__obj, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\jinja2\runtime.py", line 303, in call
+    return __obj(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\dbt\clients\jinja.py", line 82, in __call__
+    return self.call_macro(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\dbt_common\clients\jinja.py", line 395, in call_macro
+    return macro(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\jinja2\runtime.py", line 770, in __call__
+    return self._invoke(arguments, autoescape)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\jinja2\runtime.py", line 784, in _invoke
+    rv = self._func(*arguments)
+         ^^^^^^^^^^^^^^^^^^^^^^
+  File "<template>", line 50, in macro
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\jinja2\sandbox.py", line 401, in call
+    return __context.call(__obj, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\jinja2\runtime.py", line 303, in call
+    return __obj(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\dbt\clients\jinja.py", line 82, in __call__
+    return self.call_macro(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\dbt_common\clients\jinja.py", line 395, in call_macro
+    return macro(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\jinja2\runtime.py", line 770, in __call__
+    return self._invoke(arguments, autoescape)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\jinja2\runtime.py", line 784, in _invoke
+    rv = self._func(*arguments)
+         ^^^^^^^^^^^^^^^^^^^^^^
+  File "<template>", line 33, in macro
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\jinja2\sandbox.py", line 401, in call
+    return __context.call(__obj, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\jinja2\runtime.py", line 303, in call
+    return __obj(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\dbt\clients\jinja.py", line 82, in __call__
+    return self.call_macro(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\dbt_common\clients\jinja.py", line 395, in call_macro
+    return macro(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\jinja2\runtime.py", line 770, in __call__
+    return self._invoke(arguments, autoescape)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\jinja2\runtime.py", line 784, in _invoke
+    rv = self._func(*arguments)
+         ^^^^^^^^^^^^^^^^^^^^^^
+  File "<template>", line 52, in macro
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\jinja2\sandbox.py", line 401, in call
+    return __context.call(__obj, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\jinja2\runtime.py", line 303, in call
+    return __obj(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\dbt_common\record.py", line 538, in record_replay_wrapper
+    return func_to_record(*call_args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\dbt\adapters\base\impl.py", line 471, in execute
+    return self.connections.execute(sql=sql, auto_begin=auto_begin, fetch=fetch, limit=limit)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\dbt\adapters\duckdb\connections.py", line 130, in execute
+    return super().execute(sql, auto_begin, fetch, limit)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\dbt\adapters\sql\connections.py", line 219, in execute
+    _, cursor = self.add_query(sql, auto_begin)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\dbt\adapters\sql\connections.py", line 131, in add_query
+    with self.exception_handler(sql):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.2800.0_x64__qbz5n2kfra8p0\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\dbt\adapters\duckdb\connections.py", line 102, in exception_handler
+    self.rollback_if_open()
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\dbt\adapters\base\connections.py", line 125, in rollback_if_open
+    if conn is not None and conn.handle and conn.transaction_open:
+                            ^^^^^^^^^^^
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\dbt\adapters\contracts\connection.py", line 96, in handle
+    self._handle.resolve(self)
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\dbt\adapters\contracts\connection.py", line 120, in resolve
+    return self.opener(connection)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\dbt\adapters\duckdb\connections.py", line 53, in open
+    connection.handle = cls._ENV.handle()
+                        ^^^^^^^^^^^^^^^^^
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\dbt\adapters\duckdb\environments\local.py", line 75, in handle
+    self.conn = self.initialize_db(self.creds, self._plugins)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\dbt\adapters\duckdb\environments\__init__.py", line 159, in initialize_db
+    conn = duckdb.connect(creds.path, read_only=False, config=config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_duckdb.IOException: IO Error: Cannot open file "c:\tempfolder\invoice_ledger\dbt\..\data\invoice_warehouse.duckdb": The process cannot access the file because it is being used by another process.
+
+File is already open in 
+C:\Users\Zuhaib Asad\AppData\Local\Programs\Microsoft VS Code\Code.exe (PID 8748)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\dbt\cli\requires.py", line 182, in wrapper
+    result, success = func(*args, **kwargs)
+                      ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\dbt\cli\requires.py", line 128, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\dbt\cli\requires.py", line 276, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\dbt\cli\requires.py", line 321, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\dbt\cli\requires.py", line 391, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\dbt\cli\requires.py", line 368, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\dbt\cli\requires.py", line 408, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\dbt\cli\main.py", line 587, in run
+    results = task.run()
+              ^^^^^^^^^^
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\dbt\task\runnable.py", line 626, in run
+    result = self.execute_with_hooks(selected_uids)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\dbt\task\runnable.py", line 559, in execute_with_hooks
+    before_run_status = self.before_run(adapter, selected_uids)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\dbt\task\run.py", line 1117, in before_run
+    self.create_schemas(adapter, required_schemas)
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\dbt\task\runnable.py", line 734, in create_schemas
+    existing_schemas_lowered.update(ls_future.result())
+                                    ^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.2800.0_x64__qbz5n2kfra8p0\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.2800.0_x64__qbz5n2kfra8p0\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.2800.0_x64__qbz5n2kfra8p0\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\dbt_common\utils\executor.py", line 16, in connected
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\dbt\task\runnable.py", line 709, in list_schemas
+    for s in adapter.list_schemas(database_quoted)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\dbt\adapters\sql\impl.py", line 218, in list_schemas
+    results = self.execute_macro(LIST_SCHEMAS_MACRO_NAME, kwargs={"database": database})
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\dbt\adapters\base\impl.py", line 1319, in execute_macro
+    with self.connections.exception_handler(f"macro {macro_name}"):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.2800.0_x64__qbz5n2kfra8p0\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\dbt\adapters\duckdb\connections.py", line 102, in exception_handler
+    self.rollback_if_open()
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\dbt\adapters\base\connections.py", line 125, in rollback_if_open
+    if conn is not None and conn.handle and conn.transaction_open:
+                            ^^^^^^^^^^^
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\dbt\adapters\contracts\connection.py", line 96, in handle
+    self._handle.resolve(self)
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\dbt\adapters\contracts\connection.py", line 120, in resolve
+    return self.opener(connection)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\dbt\adapters\duckdb\connections.py", line 53, in open
+    connection.handle = cls._ENV.handle()
+                        ^^^^^^^^^^^^^^^^^
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\dbt\adapters\duckdb\environments\local.py", line 75, in handle
+    self.conn = self.initialize_db(self.creds, self._plugins)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\dbt\adapters\duckdb\environments\__init__.py", line 159, in initialize_db
+    conn = duckdb.connect(creds.path, read_only=False, config=config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_duckdb.IOException: IO Error: Cannot open file "c:\tempfolder\invoice_ledger\dbt\..\data\invoice_warehouse.duckdb": The process cannot access the file because it is being used by another process.
+
+File is already open in 
+C:\Users\Zuhaib Asad\AppData\Local\Programs\Microsoft VS Code\Code.exe (PID 8748)
+
+[0m02:52:18.858610 [debug] [MainThread]: Command `dbt run` failed at 02:52:18.858610 after 1.39 seconds
+[0m02:52:18.859628 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022A34C69010>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022A3A5E08C0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022A3A8E9130>]}
+[0m02:52:18.859628 [debug] [MainThread]: Flushing usage events
+[0m02:52:20.170706 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m02:52:27.962771 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000276BDDD8E00>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000276C1304200>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000276C1307C50>]}
+
+
+============================== 02:52:27.969320 | 4466698f-c465-45ad-8b4a-b734deeb21b9 ==============================
+[0m02:52:27.969320 [info ] [MainThread]: Running with dbt=1.11.6
+[0m02:52:27.970309 [debug] [MainThread]: running dbt with arguments {'version_check': 'True', 'no_print': 'None', 'static_parser': 'True', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'printer_width': '80', 'write_json': 'True', 'introspect': 'True', 'log_cache_events': 'False', 'empty': 'False', 'cache_selected_only': 'False', 'log_format': 'default', 'debug': 'False', 'fail_fast': 'False', 'profiles_dir': '.', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'partial_parse': 'True', 'use_colors': 'True', 'invocation_command': 'dbt run --profiles-dir . --select stg_invoices', 'indirect_selection': 'eager', 'use_experimental_parser': 'False', 'log_path': 'C:\\tempfolder\\invoice_ledger\\dbt\\logs'}
+[0m02:52:28.189426 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '4466698f-c465-45ad-8b4a-b734deeb21b9', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000276C3256180>]}
+[0m02:52:28.260606 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '4466698f-c465-45ad-8b4a-b734deeb21b9', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000276C1F01460>]}
+[0m02:52:28.264601 [info ] [MainThread]: Registered adapter: duckdb=1.10.1
+[0m02:52:28.477346 [debug] [MainThread]: checksum: ec27062d18352e9cfca161c166fcc73d2201661a23a3cf3c89196a27f32cfcb8, vars: {}, profile: , target: , version: 1.11.6
+[0m02:52:28.581826 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m02:52:28.581826 [debug] [MainThread]: Nothing changed, skipping partial parsing.
+[0m02:52:28.582816 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m02:52:28.587331 [warn ] [MainThread]: [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+There are 2 unused configuration paths:
+- models.invoice_ledger.mart
+- models.invoice_ledger.intermediate
+[0m02:52:28.614424 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '4466698f-c465-45ad-8b4a-b734deeb21b9', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000276C331C9E0>]}
+[0m02:52:28.671489 [debug] [MainThread]: Wrote artifact WritableManifest to C:\tempfolder\invoice_ledger\dbt\target\manifest.json
+[0m02:52:28.674488 [debug] [MainThread]: Wrote artifact SemanticManifest to C:\tempfolder\invoice_ledger\dbt\target\semantic_manifest.json
+[0m02:52:28.693900 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '4466698f-c465-45ad-8b4a-b734deeb21b9', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000276C349EF60>]}
+[0m02:52:28.693900 [info ] [MainThread]: Found 3 models, 3 sources, 474 macros
+[0m02:52:28.694912 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '4466698f-c465-45ad-8b4a-b734deeb21b9', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000276C3121BB0>]}
+[0m02:52:28.695910 [info ] [MainThread]: 
+[0m02:52:28.696911 [info ] [MainThread]: Concurrency: 1 threads (target='dev')
+[0m02:52:28.698022 [info ] [MainThread]: 
+[0m02:52:28.698022 [debug] [MainThread]: Acquiring new duckdb connection 'master'
+[0m02:52:28.699041 [debug] [ThreadPool]: Acquiring new duckdb connection 'list_invoice_warehouse'
+[0m02:52:28.757782 [debug] [ThreadPool]: Using duckdb connection "list_invoice_warehouse"
+[0m02:52:28.758773 [debug] [ThreadPool]: On list_invoice_warehouse: /* {"app": "dbt", "dbt_version": "1.11.6", "profile_name": "invoice_ledger", "target_name": "dev", "connection_name": "list_invoice_warehouse"} */
+
+    
+    select schema_name
+    from system.information_schema.schemata
+    
+    where lower(catalog_name) = '"invoice_warehouse"'
+    
+  
+  
+[0m02:52:28.758773 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m02:52:28.774168 [debug] [ThreadPool]: SQL status: OK in 0.015 seconds
+[0m02:52:28.775141 [debug] [ThreadPool]: On list_invoice_warehouse: Close
+[0m02:52:28.775141 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_invoice_warehouse, now create_invoice_warehouse_dev_dev)
+[0m02:52:28.776697 [debug] [ThreadPool]: Creating schema "database: "invoice_warehouse"
+schema: "dev_dev"
+"
+[0m02:52:28.781289 [debug] [ThreadPool]: Using duckdb connection "create_invoice_warehouse_dev_dev"
+[0m02:52:28.782287 [debug] [ThreadPool]: On create_invoice_warehouse_dev_dev: /* {"app": "dbt", "dbt_version": "1.11.6", "profile_name": "invoice_ledger", "target_name": "dev", "connection_name": "create_invoice_warehouse_dev_dev"} */
+
+    
+        select type from duckdb_databases()
+        where lower(database_name)='invoice_warehouse'
+        and type='sqlite'
+    
+  
+[0m02:52:28.782287 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m02:52:28.783289 [debug] [ThreadPool]: SQL status: OK in 0.001 seconds
+[0m02:52:28.784286 [debug] [ThreadPool]: Using duckdb connection "create_invoice_warehouse_dev_dev"
+[0m02:52:28.784286 [debug] [ThreadPool]: On create_invoice_warehouse_dev_dev: BEGIN
+[0m02:52:28.785301 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m02:52:28.785301 [debug] [ThreadPool]: Using duckdb connection "create_invoice_warehouse_dev_dev"
+[0m02:52:28.785301 [debug] [ThreadPool]: On create_invoice_warehouse_dev_dev: /* {"app": "dbt", "dbt_version": "1.11.6", "profile_name": "invoice_ledger", "target_name": "dev", "connection_name": "create_invoice_warehouse_dev_dev"} */
+
+    
+    
+        create schema if not exists "invoice_warehouse"."dev_dev"
+    
+[0m02:52:28.785301 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m02:52:28.786829 [debug] [ThreadPool]: On create_invoice_warehouse_dev_dev: COMMIT
+[0m02:52:28.786829 [debug] [ThreadPool]: Using duckdb connection "create_invoice_warehouse_dev_dev"
+[0m02:52:28.786829 [debug] [ThreadPool]: On create_invoice_warehouse_dev_dev: COMMIT
+[0m02:52:28.799810 [debug] [ThreadPool]: SQL status: OK in 0.013 seconds
+[0m02:52:28.800839 [debug] [ThreadPool]: On create_invoice_warehouse_dev_dev: Close
+[0m02:52:28.804799 [debug] [ThreadPool]: Acquiring new duckdb connection 'list_invoice_warehouse_dev_dev'
+[0m02:52:28.810122 [debug] [ThreadPool]: Using duckdb connection "list_invoice_warehouse_dev_dev"
+[0m02:52:28.810122 [debug] [ThreadPool]: On list_invoice_warehouse_dev_dev: BEGIN
+[0m02:52:28.810122 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m02:52:28.811079 [debug] [ThreadPool]: SQL status: OK in 0.001 seconds
+[0m02:52:28.811079 [debug] [ThreadPool]: Using duckdb connection "list_invoice_warehouse_dev_dev"
+[0m02:52:28.811079 [debug] [ThreadPool]: On list_invoice_warehouse_dev_dev: /* {"app": "dbt", "dbt_version": "1.11.6", "profile_name": "invoice_ledger", "target_name": "dev", "connection_name": "list_invoice_warehouse_dev_dev"} */
+select
+      'invoice_warehouse' as database,
+      table_name as name,
+      table_schema as schema,
+      CASE table_type
+        WHEN 'BASE TABLE' THEN 'table'
+        WHEN 'VIEW' THEN 'view'
+        WHEN 'LOCAL TEMPORARY' THEN 'table'
+        END as type
+    from system.information_schema.tables
+    where lower(table_schema) = 'dev_dev'
+    and lower(table_catalog) = 'invoice_warehouse'
+  
+[0m02:52:28.824654 [debug] [ThreadPool]: SQL status: OK in 0.012 seconds
+[0m02:52:28.825675 [debug] [ThreadPool]: On list_invoice_warehouse_dev_dev: ROLLBACK
+[0m02:52:28.826677 [debug] [ThreadPool]: Failed to rollback 'list_invoice_warehouse_dev_dev'
+[0m02:52:28.826677 [debug] [ThreadPool]: On list_invoice_warehouse_dev_dev: Close
+[0m02:52:28.827870 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '4466698f-c465-45ad-8b4a-b734deeb21b9', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000276C3651DF0>]}
+[0m02:52:28.828881 [debug] [MainThread]: Using duckdb connection "master"
+[0m02:52:28.828881 [debug] [MainThread]: On master: BEGIN
+[0m02:52:28.828881 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m02:52:28.830000 [debug] [MainThread]: SQL status: OK in 0.001 seconds
+[0m02:52:28.830000 [debug] [MainThread]: On master: COMMIT
+[0m02:52:28.830000 [debug] [MainThread]: Using duckdb connection "master"
+[0m02:52:28.830000 [debug] [MainThread]: On master: COMMIT
+[0m02:52:28.831002 [debug] [MainThread]: SQL status: OK in 0.000 seconds
+[0m02:52:28.831002 [debug] [MainThread]: On master: Close
+[0m02:52:28.833881 [debug] [Thread-1 (]: Began running node model.invoice_ledger.stg_invoices
+[0m02:52:28.834881 [info ] [Thread-1 (]: 1 of 1 START sql view model dev_dev.stg_invoices ............................... [RUN]
+[0m02:52:28.835881 [debug] [Thread-1 (]: Acquiring new duckdb connection 'model.invoice_ledger.stg_invoices'
+[0m02:52:28.835881 [debug] [Thread-1 (]: Began compiling node model.invoice_ledger.stg_invoices
+[0m02:52:28.842576 [debug] [Thread-1 (]: Writing injected SQL for node "model.invoice_ledger.stg_invoices"
+[0m02:52:28.843606 [debug] [Thread-1 (]: Began executing node model.invoice_ledger.stg_invoices
+[0m02:52:28.872293 [debug] [Thread-1 (]: Writing runtime sql for node "model.invoice_ledger.stg_invoices"
+[0m02:52:28.875759 [debug] [Thread-1 (]: Using duckdb connection "model.invoice_ledger.stg_invoices"
+[0m02:52:28.875759 [debug] [Thread-1 (]: On model.invoice_ledger.stg_invoices: BEGIN
+[0m02:52:28.876769 [debug] [Thread-1 (]: Opening a new connection, currently in state init
+[0m02:52:28.876769 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m02:52:28.877805 [debug] [Thread-1 (]: Using duckdb connection "model.invoice_ledger.stg_invoices"
+[0m02:52:28.878323 [debug] [Thread-1 (]: On model.invoice_ledger.stg_invoices: /* {"app": "dbt", "dbt_version": "1.11.6", "profile_name": "invoice_ledger", "target_name": "dev", "node_id": "model.invoice_ledger.stg_invoices"} */
+
+  
+  create view "invoice_warehouse"."dev_dev"."stg_invoices__dbt_tmp" as (
+    SELECT *
+FROM "invoice_warehouse"."raw"."invoices"
+  );
+
+[0m02:52:28.878323 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m02:52:28.884416 [debug] [Thread-1 (]: Using duckdb connection "model.invoice_ledger.stg_invoices"
+[0m02:52:28.884416 [debug] [Thread-1 (]: On model.invoice_ledger.stg_invoices: /* {"app": "dbt", "dbt_version": "1.11.6", "profile_name": "invoice_ledger", "target_name": "dev", "node_id": "model.invoice_ledger.stg_invoices"} */
+alter view "invoice_warehouse"."dev_dev"."stg_invoices__dbt_tmp" rename to "stg_invoices"
+[0m02:52:28.885357 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m02:52:28.893924 [debug] [Thread-1 (]: On model.invoice_ledger.stg_invoices: COMMIT
+[0m02:52:28.893924 [debug] [Thread-1 (]: Using duckdb connection "model.invoice_ledger.stg_invoices"
+[0m02:52:28.894924 [debug] [Thread-1 (]: On model.invoice_ledger.stg_invoices: COMMIT
+[0m02:52:28.896921 [debug] [Thread-1 (]: SQL status: OK in 0.002 seconds
+[0m02:52:28.902060 [debug] [Thread-1 (]: Using duckdb connection "model.invoice_ledger.stg_invoices"
+[0m02:52:28.903033 [debug] [Thread-1 (]: On model.invoice_ledger.stg_invoices: /* {"app": "dbt", "dbt_version": "1.11.6", "profile_name": "invoice_ledger", "target_name": "dev", "node_id": "model.invoice_ledger.stg_invoices"} */
+
+      drop view if exists "invoice_warehouse"."dev_dev"."stg_invoices__dbt_backup" cascade
+    
+[0m02:52:28.903033 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m02:52:28.905074 [debug] [Thread-1 (]: On model.invoice_ledger.stg_invoices: Close
+[0m02:52:28.920264 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '4466698f-c465-45ad-8b4a-b734deeb21b9', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000276C3489EE0>]}
+[0m02:52:28.921219 [info ] [Thread-1 (]: 1 of 1 OK created sql view model dev_dev.stg_invoices .......................... [[32mOK[0m in 0.07s]
+[0m02:52:28.922206 [debug] [Thread-1 (]: Finished running node model.invoice_ledger.stg_invoices
+[0m02:52:28.923187 [debug] [MainThread]: Using duckdb connection "master"
+[0m02:52:28.923187 [debug] [MainThread]: On master: BEGIN
+[0m02:52:28.923187 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m02:52:28.924207 [debug] [MainThread]: SQL status: OK in 0.001 seconds
+[0m02:52:28.924207 [debug] [MainThread]: On master: COMMIT
+[0m02:52:28.924207 [debug] [MainThread]: Using duckdb connection "master"
+[0m02:52:28.925206 [debug] [MainThread]: On master: COMMIT
+[0m02:52:28.925206 [debug] [MainThread]: SQL status: OK in 0.000 seconds
+[0m02:52:28.925206 [debug] [MainThread]: On master: Close
+[0m02:52:28.925206 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m02:52:28.925206 [debug] [MainThread]: Connection 'create_invoice_warehouse_dev_dev' was properly closed.
+[0m02:52:28.925206 [debug] [MainThread]: Connection 'list_invoice_warehouse_dev_dev' was properly closed.
+[0m02:52:28.926741 [debug] [MainThread]: Connection 'model.invoice_ledger.stg_invoices' was properly closed.
+[0m02:52:28.926741 [info ] [MainThread]: 
+[0m02:52:28.927753 [info ] [MainThread]: Finished running 1 view model in 0 hours 0 minutes and 0.23 seconds (0.23s).
+[0m02:52:28.928777 [debug] [MainThread]: Command end result
+[0m02:52:28.948687 [debug] [MainThread]: Wrote artifact WritableManifest to C:\tempfolder\invoice_ledger\dbt\target\manifest.json
+[0m02:52:28.950937 [debug] [MainThread]: Wrote artifact SemanticManifest to C:\tempfolder\invoice_ledger\dbt\target\semantic_manifest.json
+[0m02:52:28.956667 [debug] [MainThread]: Wrote artifact RunExecutionResult to C:\tempfolder\invoice_ledger\dbt\target\run_results.json
+[0m02:52:28.956667 [info ] [MainThread]: 
+[0m02:52:28.957690 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m02:52:28.958680 [info ] [MainThread]: 
+[0m02:52:28.959687 [info ] [MainThread]: Done. PASS=1 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=1
+[0m02:52:28.961700 [debug] [MainThread]: Command `dbt run` succeeded at 02:52:28.960687 after 1.13 seconds
+[0m02:52:28.961700 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000276C1A59550>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000276C1BF39B0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000276C13E9940>]}
+[0m02:52:28.961700 [debug] [MainThread]: Flushing usage events
+[0m02:52:30.101682 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m02:53:33.861880 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001333DC54200>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001333F321FA0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001333F20D5B0>]}
+
+
+============================== 02:53:33.867514 | 77fd4d60-6537-4a33-8312-dd8f642c5029 ==============================
+[0m02:53:33.867514 [info ] [MainThread]: Running with dbt=1.11.6
+[0m02:53:33.868504 [debug] [MainThread]: running dbt with arguments {'static_parser': 'True', 'no_print': 'None', 'version_check': 'True', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'printer_width': '80', 'write_json': 'True', 'empty': 'False', 'log_cache_events': 'False', 'introspect': 'True', 'cache_selected_only': 'False', 'fail_fast': 'False', 'debug': 'False', 'log_format': 'default', 'partial_parse': 'True', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'profiles_dir': '.', 'indirect_selection': 'eager', 'use_colors': 'True', 'invocation_command': 'dbt run --profiles-dir . --select stg_invoices', 'use_experimental_parser': 'False', 'log_path': 'C:\\tempfolder\\invoice_ledger\\dbt\\logs'}
+[0m02:53:34.085285 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '77fd4d60-6537-4a33-8312-dd8f642c5029', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001334192C530>]}
+[0m02:53:34.142034 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '77fd4d60-6537-4a33-8312-dd8f642c5029', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000013341E69AF0>]}
+[0m02:53:34.145034 [info ] [MainThread]: Registered adapter: duckdb=1.10.1
+[0m02:53:34.364950 [debug] [MainThread]: checksum: ec27062d18352e9cfca161c166fcc73d2201661a23a3cf3c89196a27f32cfcb8, vars: {}, profile: , target: , version: 1.11.6
+[0m02:53:34.468591 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m02:53:34.469589 [debug] [MainThread]: Nothing changed, skipping partial parsing.
+[0m02:53:34.469589 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m02:53:34.474585 [warn ] [MainThread]: [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+There are 2 unused configuration paths:
+- models.invoice_ledger.intermediate
+- models.invoice_ledger.mart
+[0m02:53:34.500704 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '77fd4d60-6537-4a33-8312-dd8f642c5029', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000013343211400>]}
+[0m02:53:34.562063 [debug] [MainThread]: Wrote artifact WritableManifest to C:\tempfolder\invoice_ledger\dbt\target\manifest.json
+[0m02:53:34.564071 [debug] [MainThread]: Wrote artifact SemanticManifest to C:\tempfolder\invoice_ledger\dbt\target\semantic_manifest.json
+[0m02:53:34.584444 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '77fd4d60-6537-4a33-8312-dd8f642c5029', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000013343575700>]}
+[0m02:53:34.584444 [info ] [MainThread]: Found 3 models, 3 sources, 474 macros
+[0m02:53:34.585451 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '77fd4d60-6537-4a33-8312-dd8f642c5029', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001334321A450>]}
+[0m02:53:34.586986 [info ] [MainThread]: 
+[0m02:53:34.586986 [info ] [MainThread]: Concurrency: 1 threads (target='dev')
+[0m02:53:34.587984 [info ] [MainThread]: 
+[0m02:53:34.588996 [debug] [MainThread]: Acquiring new duckdb connection 'master'
+[0m02:53:34.590001 [debug] [ThreadPool]: Acquiring new duckdb connection 'list_invoice_warehouse'
+[0m02:53:34.656435 [debug] [ThreadPool]: Using duckdb connection "list_invoice_warehouse"
+[0m02:53:34.656944 [debug] [ThreadPool]: On list_invoice_warehouse: /* {"app": "dbt", "dbt_version": "1.11.6", "profile_name": "invoice_ledger", "target_name": "dev", "connection_name": "list_invoice_warehouse"} */
+
+    
+    select schema_name
+    from system.information_schema.schemata
+    
+    where lower(catalog_name) = '"invoice_warehouse"'
+    
+  
+  
+[0m02:53:34.656944 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m02:53:34.693297 [debug] [ThreadPool]: SQL status: OK in 0.036 seconds
+[0m02:53:34.695268 [debug] [ThreadPool]: On list_invoice_warehouse: Close
+[0m02:53:34.695268 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_invoice_warehouse, now create_invoice_warehouse_dev_dev)
+[0m02:53:34.695268 [debug] [ThreadPool]: Creating schema "database: "invoice_warehouse"
+schema: "dev_dev"
+"
+[0m02:53:34.702262 [debug] [ThreadPool]: Using duckdb connection "create_invoice_warehouse_dev_dev"
+[0m02:53:34.702262 [debug] [ThreadPool]: On create_invoice_warehouse_dev_dev: /* {"app": "dbt", "dbt_version": "1.11.6", "profile_name": "invoice_ledger", "target_name": "dev", "connection_name": "create_invoice_warehouse_dev_dev"} */
+
+    
+        select type from duckdb_databases()
+        where lower(database_name)='invoice_warehouse'
+        and type='sqlite'
+    
+  
+[0m02:53:34.702262 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m02:53:34.703262 [debug] [ThreadPool]: SQL status: OK in 0.001 seconds
+[0m02:53:34.705268 [debug] [ThreadPool]: Using duckdb connection "create_invoice_warehouse_dev_dev"
+[0m02:53:34.705268 [debug] [ThreadPool]: On create_invoice_warehouse_dev_dev: BEGIN
+[0m02:53:34.705268 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m02:53:34.705268 [debug] [ThreadPool]: Using duckdb connection "create_invoice_warehouse_dev_dev"
+[0m02:53:34.705268 [debug] [ThreadPool]: On create_invoice_warehouse_dev_dev: /* {"app": "dbt", "dbt_version": "1.11.6", "profile_name": "invoice_ledger", "target_name": "dev", "connection_name": "create_invoice_warehouse_dev_dev"} */
+
+    
+    
+        create schema if not exists "invoice_warehouse"."dev_dev"
+    
+[0m02:53:34.706818 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m02:53:34.707828 [debug] [ThreadPool]: On create_invoice_warehouse_dev_dev: COMMIT
+[0m02:53:34.707828 [debug] [ThreadPool]: Using duckdb connection "create_invoice_warehouse_dev_dev"
+[0m02:53:34.707828 [debug] [ThreadPool]: On create_invoice_warehouse_dev_dev: COMMIT
+[0m02:53:34.708829 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m02:53:34.708829 [debug] [ThreadPool]: On create_invoice_warehouse_dev_dev: Close
+[0m02:53:34.712850 [debug] [ThreadPool]: Acquiring new duckdb connection 'list_invoice_warehouse_dev_dev'
+[0m02:53:34.718373 [debug] [ThreadPool]: Using duckdb connection "list_invoice_warehouse_dev_dev"
+[0m02:53:34.718373 [debug] [ThreadPool]: On list_invoice_warehouse_dev_dev: BEGIN
+[0m02:53:34.718373 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m02:53:34.719393 [debug] [ThreadPool]: SQL status: OK in 0.001 seconds
+[0m02:53:34.720393 [debug] [ThreadPool]: Using duckdb connection "list_invoice_warehouse_dev_dev"
+[0m02:53:34.720393 [debug] [ThreadPool]: On list_invoice_warehouse_dev_dev: /* {"app": "dbt", "dbt_version": "1.11.6", "profile_name": "invoice_ledger", "target_name": "dev", "connection_name": "list_invoice_warehouse_dev_dev"} */
+select
+      'invoice_warehouse' as database,
+      table_name as name,
+      table_schema as schema,
+      CASE table_type
+        WHEN 'BASE TABLE' THEN 'table'
+        WHEN 'VIEW' THEN 'view'
+        WHEN 'LOCAL TEMPORARY' THEN 'table'
+        END as type
+    from system.information_schema.tables
+    where lower(table_schema) = 'dev_dev'
+    and lower(table_catalog) = 'invoice_warehouse'
+  
+[0m02:53:34.734028 [debug] [ThreadPool]: SQL status: OK in 0.013 seconds
+[0m02:53:34.735027 [debug] [ThreadPool]: On list_invoice_warehouse_dev_dev: ROLLBACK
+[0m02:53:34.735027 [debug] [ThreadPool]: Failed to rollback 'list_invoice_warehouse_dev_dev'
+[0m02:53:34.736555 [debug] [ThreadPool]: On list_invoice_warehouse_dev_dev: Close
+[0m02:53:34.737576 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '77fd4d60-6537-4a33-8312-dd8f642c5029', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000013343047C20>]}
+[0m02:53:34.737576 [debug] [MainThread]: Using duckdb connection "master"
+[0m02:53:34.737576 [debug] [MainThread]: On master: BEGIN
+[0m02:53:34.738619 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m02:53:34.738619 [debug] [MainThread]: SQL status: OK in 0.000 seconds
+[0m02:53:34.738619 [debug] [MainThread]: On master: COMMIT
+[0m02:53:34.739634 [debug] [MainThread]: Using duckdb connection "master"
+[0m02:53:34.739634 [debug] [MainThread]: On master: COMMIT
+[0m02:53:34.739634 [debug] [MainThread]: SQL status: OK in 0.000 seconds
+[0m02:53:34.740577 [debug] [MainThread]: On master: Close
+[0m02:53:34.742577 [debug] [Thread-1 (]: Began running node model.invoice_ledger.stg_invoices
+[0m02:53:34.743645 [info ] [Thread-1 (]: 1 of 1 START sql view model dev_dev.stg_invoices ............................... [RUN]
+[0m02:53:34.744574 [debug] [Thread-1 (]: Acquiring new duckdb connection 'model.invoice_ledger.stg_invoices'
+[0m02:53:34.744574 [debug] [Thread-1 (]: Began compiling node model.invoice_ledger.stg_invoices
+[0m02:53:34.750249 [debug] [Thread-1 (]: Writing injected SQL for node "model.invoice_ledger.stg_invoices"
+[0m02:53:34.751313 [debug] [Thread-1 (]: Began executing node model.invoice_ledger.stg_invoices
+[0m02:53:34.779998 [debug] [Thread-1 (]: Writing runtime sql for node "model.invoice_ledger.stg_invoices"
+[0m02:53:34.782021 [debug] [Thread-1 (]: Using duckdb connection "model.invoice_ledger.stg_invoices"
+[0m02:53:34.782021 [debug] [Thread-1 (]: On model.invoice_ledger.stg_invoices: BEGIN
+[0m02:53:34.782021 [debug] [Thread-1 (]: Opening a new connection, currently in state init
+[0m02:53:34.784553 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m02:53:34.784553 [debug] [Thread-1 (]: Using duckdb connection "model.invoice_ledger.stg_invoices"
+[0m02:53:34.784553 [debug] [Thread-1 (]: On model.invoice_ledger.stg_invoices: /* {"app": "dbt", "dbt_version": "1.11.6", "profile_name": "invoice_ledger", "target_name": "dev", "node_id": "model.invoice_ledger.stg_invoices"} */
+
+  
+  create view "invoice_warehouse"."dev_dev"."stg_invoices__dbt_tmp" as (
+    SELECT *
+FROM "invoice_warehouse"."raw"."invoices"
+  );
+
+[0m02:53:34.785570 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m02:53:34.792698 [debug] [Thread-1 (]: Using duckdb connection "model.invoice_ledger.stg_invoices"
+[0m02:53:34.793707 [debug] [Thread-1 (]: On model.invoice_ledger.stg_invoices: /* {"app": "dbt", "dbt_version": "1.11.6", "profile_name": "invoice_ledger", "target_name": "dev", "node_id": "model.invoice_ledger.stg_invoices"} */
+alter view "invoice_warehouse"."dev_dev"."stg_invoices" rename to "stg_invoices__dbt_backup"
+[0m02:53:34.794699 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m02:53:34.797258 [debug] [Thread-1 (]: Using duckdb connection "model.invoice_ledger.stg_invoices"
+[0m02:53:34.797258 [debug] [Thread-1 (]: On model.invoice_ledger.stg_invoices: /* {"app": "dbt", "dbt_version": "1.11.6", "profile_name": "invoice_ledger", "target_name": "dev", "node_id": "model.invoice_ledger.stg_invoices"} */
+alter view "invoice_warehouse"."dev_dev"."stg_invoices__dbt_tmp" rename to "stg_invoices"
+[0m02:53:34.798275 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m02:53:34.807804 [debug] [Thread-1 (]: On model.invoice_ledger.stg_invoices: COMMIT
+[0m02:53:34.808821 [debug] [Thread-1 (]: Using duckdb connection "model.invoice_ledger.stg_invoices"
+[0m02:53:34.808821 [debug] [Thread-1 (]: On model.invoice_ledger.stg_invoices: COMMIT
+[0m02:53:34.810820 [debug] [Thread-1 (]: SQL status: OK in 0.002 seconds
+[0m02:53:34.815835 [debug] [Thread-1 (]: Using duckdb connection "model.invoice_ledger.stg_invoices"
+[0m02:53:34.815835 [debug] [Thread-1 (]: On model.invoice_ledger.stg_invoices: /* {"app": "dbt", "dbt_version": "1.11.6", "profile_name": "invoice_ledger", "target_name": "dev", "node_id": "model.invoice_ledger.stg_invoices"} */
+
+      drop view if exists "invoice_warehouse"."dev_dev"."stg_invoices__dbt_backup" cascade
+    
+[0m02:53:34.816819 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m02:53:34.820031 [debug] [Thread-1 (]: On model.invoice_ledger.stg_invoices: Close
+[0m02:53:34.821068 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '77fd4d60-6537-4a33-8312-dd8f642c5029', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001334121A990>]}
+[0m02:53:34.822042 [info ] [Thread-1 (]: 1 of 1 OK created sql view model dev_dev.stg_invoices .......................... [[32mOK[0m in 0.08s]
+[0m02:53:34.823012 [debug] [Thread-1 (]: Finished running node model.invoice_ledger.stg_invoices
+[0m02:53:34.824017 [debug] [MainThread]: Using duckdb connection "master"
+[0m02:53:34.825011 [debug] [MainThread]: On master: BEGIN
+[0m02:53:34.825011 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m02:53:34.825011 [debug] [MainThread]: SQL status: OK in 0.001 seconds
+[0m02:53:34.826535 [debug] [MainThread]: On master: COMMIT
+[0m02:53:34.826535 [debug] [MainThread]: Using duckdb connection "master"
+[0m02:53:34.826535 [debug] [MainThread]: On master: COMMIT
+[0m02:53:34.826535 [debug] [MainThread]: SQL status: OK in 0.000 seconds
+[0m02:53:34.827554 [debug] [MainThread]: On master: Close
+[0m02:53:34.827554 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m02:53:34.828558 [debug] [MainThread]: Connection 'create_invoice_warehouse_dev_dev' was properly closed.
+[0m02:53:34.828558 [debug] [MainThread]: Connection 'list_invoice_warehouse_dev_dev' was properly closed.
+[0m02:53:34.828558 [debug] [MainThread]: Connection 'model.invoice_ledger.stg_invoices' was properly closed.
+[0m02:53:34.829550 [info ] [MainThread]: 
+[0m02:53:34.829550 [info ] [MainThread]: Finished running 1 view model in 0 hours 0 minutes and 0.24 seconds (0.24s).
+[0m02:53:34.831558 [debug] [MainThread]: Command end result
+[0m02:53:34.852088 [debug] [MainThread]: Wrote artifact WritableManifest to C:\tempfolder\invoice_ledger\dbt\target\manifest.json
+[0m02:53:34.855012 [debug] [MainThread]: Wrote artifact SemanticManifest to C:\tempfolder\invoice_ledger\dbt\target\semantic_manifest.json
+[0m02:53:34.862537 [debug] [MainThread]: Wrote artifact RunExecutionResult to C:\tempfolder\invoice_ledger\dbt\target\run_results.json
+[0m02:53:34.862537 [info ] [MainThread]: 
+[0m02:53:34.863537 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m02:53:34.864557 [info ] [MainThread]: 
+[0m02:53:34.865545 [info ] [MainThread]: Done. PASS=1 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=1
+[0m02:53:34.866536 [debug] [MainThread]: Command `dbt run` succeeded at 02:53:34.866536 after 1.14 seconds
+[0m02:53:34.866536 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000013341C52F30>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001334347CAD0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000133412608F0>]}
+[0m02:53:34.867694 [debug] [MainThread]: Flushing usage events
+[0m02:53:36.106452 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m02:56:53.816726 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001DC98059580>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001DC93A80BF0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001DC98177E60>]}
+
+
+============================== 02:56:53.820765 | 03aa1f89-c862-46bf-80e5-b8151d5db21f ==============================
+[0m02:56:53.820765 [info ] [MainThread]: Running with dbt=1.11.6
+[0m02:56:53.821729 [debug] [MainThread]: running dbt with arguments {'version_check': 'True', 'no_print': 'None', 'static_parser': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'target_path': 'None', 'printer_width': '80', 'write_json': 'True', 'empty': 'False', 'log_cache_events': 'False', 'introspect': 'True', 'cache_selected_only': 'False', 'fail_fast': 'False', 'debug': 'False', 'log_format': 'default', 'partial_parse': 'True', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'profiles_dir': '.', 'use_colors': 'True', 'indirect_selection': 'eager', 'invocation_command': 'dbt run --profiles-dir . --select stg_invoices', 'use_experimental_parser': 'False', 'log_path': 'C:\\tempfolder\\invoice_ledger\\dbt\\logs'}
+[0m02:56:53.981726 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '03aa1f89-c862-46bf-80e5-b8151d5db21f', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001DC98706660>]}
+[0m02:56:54.025330 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '03aa1f89-c862-46bf-80e5-b8151d5db21f', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001DC9881BEC0>]}
+[0m02:56:54.027335 [info ] [MainThread]: Registered adapter: duckdb=1.10.1
+[0m02:56:54.173937 [debug] [MainThread]: checksum: ec27062d18352e9cfca161c166fcc73d2201661a23a3cf3c89196a27f32cfcb8, vars: {}, profile: , target: , version: 1.11.6
+[0m02:56:54.221556 [info ] [MainThread]: Unable to do partial parsing because a project config has changed
+[0m02:56:54.222624 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'partial_parser', 'label': '03aa1f89-c862-46bf-80e5-b8151d5db21f', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001DC96FEF830>]}
+[0m02:56:54.958993 [warn ] [MainThread]: [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+There are 2 unused configuration paths:
+- models.invoice_ledger.mart
+- models.invoice_ledger.intermediate
+[0m02:56:54.966401 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '03aa1f89-c862-46bf-80e5-b8151d5db21f', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001DC98678D70>]}
+[0m02:56:55.006399 [debug] [MainThread]: Wrote artifact WritableManifest to C:\tempfolder\invoice_ledger\dbt\target\manifest.json
+[0m02:56:55.008955 [debug] [MainThread]: Wrote artifact SemanticManifest to C:\tempfolder\invoice_ledger\dbt\target\semantic_manifest.json
+[0m02:56:55.026099 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '03aa1f89-c862-46bf-80e5-b8151d5db21f', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001DC987A93A0>]}
+[0m02:56:55.026099 [info ] [MainThread]: Found 3 models, 3 sources, 474 macros
+[0m02:56:55.027098 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '03aa1f89-c862-46bf-80e5-b8151d5db21f', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001DC9877A7E0>]}
+[0m02:56:55.028114 [info ] [MainThread]: 
+[0m02:56:55.029101 [info ] [MainThread]: Concurrency: 1 threads (target='dev')
+[0m02:56:55.029101 [info ] [MainThread]: 
+[0m02:56:55.030099 [debug] [MainThread]: Acquiring new duckdb connection 'master'
+[0m02:56:55.031124 [debug] [ThreadPool]: Acquiring new duckdb connection 'list_invoice_warehouse'
+[0m02:56:55.081993 [debug] [ThreadPool]: Using duckdb connection "list_invoice_warehouse"
+[0m02:56:55.081993 [debug] [ThreadPool]: On list_invoice_warehouse: /* {"app": "dbt", "dbt_version": "1.11.6", "profile_name": "invoice_ledger", "target_name": "dev", "connection_name": "list_invoice_warehouse"} */
+
+    
+    select schema_name
+    from system.information_schema.schemata
+    
+    where lower(catalog_name) = '"invoice_warehouse"'
+    
+  
+  
+[0m02:56:55.081993 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m02:56:55.191951 [debug] [ThreadPool]: DuckDB adapter: duckdb error: IO Error: Cannot open file "c:\tempfolder\invoice_ledger\dbt\..\data\invoice_warehouse.duckdb": The process cannot access the file because it is being used by another process.
+
+File is already open in 
+C:\Users\Zuhaib Asad\AppData\Local\Programs\Microsoft VS Code\Code.exe (PID 8748)
+[0m02:56:55.192961 [debug] [ThreadPool]: DuckDB adapter: Error running SQL: /* {"app": "dbt", "dbt_version": "1.11.6", "profile_name": "invoice_ledger", "target_name": "dev", "connection_name": "list_invoice_warehouse"} */
+
+    
+    select schema_name
+    from system.information_schema.schemata
+    
+    where lower(catalog_name) = '"invoice_warehouse"'
+    
+  
+  
+[0m02:56:55.192961 [debug] [ThreadPool]: DuckDB adapter: Rolling back transaction.
+[0m02:56:55.192961 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m02:56:55.303667 [debug] [ThreadPool]: DuckDB adapter: duckdb error: IO Error: Cannot open file "c:\tempfolder\invoice_ledger\dbt\..\data\invoice_warehouse.duckdb": The process cannot access the file because it is being used by another process.
+
+File is already open in 
+C:\Users\Zuhaib Asad\AppData\Local\Programs\Microsoft VS Code\Code.exe (PID 8748)
+[0m02:56:55.303667 [debug] [ThreadPool]: DuckDB adapter: Error running SQL: macro list_schemas
+[0m02:56:55.304664 [debug] [ThreadPool]: DuckDB adapter: Rolling back transaction.
+[0m02:56:55.304664 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m02:56:55.417244 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m02:56:55.417244 [debug] [MainThread]: Connection 'list_invoice_warehouse' was properly closed.
+[0m02:56:55.417244 [info ] [MainThread]: 
+[0m02:56:55.418183 [info ] [MainThread]: Finished running  in 0 hours 0 minutes and 0.39 seconds (0.39s).
+[0m02:56:55.418183 [error] [MainThread]: Encountered an error:
+IO Error: Cannot open file "c:\tempfolder\invoice_ledger\dbt\..\data\invoice_warehouse.duckdb": The process cannot access the file because it is being used by another process.
+
+File is already open in 
+C:\Users\Zuhaib Asad\AppData\Local\Programs\Microsoft VS Code\Code.exe (PID 8748)
+[0m02:56:55.425759 [error] [MainThread]: Traceback (most recent call last):
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\dbt\adapters\duckdb\connections.py", line 95, in exception_handler
+    yield
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\dbt\adapters\sql\connections.py", line 147, in add_query
+    cursor = connection.handle.cursor()
+             ^^^^^^^^^^^^^^^^^
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\dbt\adapters\contracts\connection.py", line 96, in handle
+    self._handle.resolve(self)
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\dbt\adapters\contracts\connection.py", line 120, in resolve
+    return self.opener(connection)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\dbt\adapters\duckdb\connections.py", line 53, in open
+    connection.handle = cls._ENV.handle()
+                        ^^^^^^^^^^^^^^^^^
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\dbt\adapters\duckdb\environments\local.py", line 75, in handle
+    self.conn = self.initialize_db(self.creds, self._plugins)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\dbt\adapters\duckdb\environments\__init__.py", line 159, in initialize_db
+    conn = duckdb.connect(creds.path, read_only=False, config=config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_duckdb.IOException: IO Error: Cannot open file "c:\tempfolder\invoice_ledger\dbt\..\data\invoice_warehouse.duckdb": The process cannot access the file because it is being used by another process.
+
+File is already open in 
+C:\Users\Zuhaib Asad\AppData\Local\Programs\Microsoft VS Code\Code.exe (PID 8748)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\dbt\adapters\duckdb\connections.py", line 95, in exception_handler
+    yield
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\dbt\adapters\base\impl.py", line 1320, in execute_macro
+    result = macro_function(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\dbt_common\clients\jinja.py", line 427, in __call__
+    return self.call_macro(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\dbt_common\clients\jinja.py", line 395, in call_macro
+    return macro(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\jinja2\runtime.py", line 770, in __call__
+    return self._invoke(arguments, autoescape)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\jinja2\runtime.py", line 784, in _invoke
+    rv = self._func(*arguments)
+         ^^^^^^^^^^^^^^^^^^^^^^
+  File "<template>", line 20, in macro
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\jinja2\sandbox.py", line 401, in call
+    return __context.call(__obj, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\jinja2\runtime.py", line 303, in call
+    return __obj(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\dbt\clients\jinja.py", line 82, in __call__
+    return self.call_macro(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\dbt_common\clients\jinja.py", line 395, in call_macro
+    return macro(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\jinja2\runtime.py", line 770, in __call__
+    return self._invoke(arguments, autoescape)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\jinja2\runtime.py", line 784, in _invoke
+    rv = self._func(*arguments)
+         ^^^^^^^^^^^^^^^^^^^^^^
+  File "<template>", line 50, in macro
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\jinja2\sandbox.py", line 401, in call
+    return __context.call(__obj, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\jinja2\runtime.py", line 303, in call
+    return __obj(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\dbt\clients\jinja.py", line 82, in __call__
+    return self.call_macro(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\dbt_common\clients\jinja.py", line 395, in call_macro
+    return macro(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\jinja2\runtime.py", line 770, in __call__
+    return self._invoke(arguments, autoescape)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\jinja2\runtime.py", line 784, in _invoke
+    rv = self._func(*arguments)
+         ^^^^^^^^^^^^^^^^^^^^^^
+  File "<template>", line 33, in macro
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\jinja2\sandbox.py", line 401, in call
+    return __context.call(__obj, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\jinja2\runtime.py", line 303, in call
+    return __obj(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\dbt\clients\jinja.py", line 82, in __call__
+    return self.call_macro(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\dbt_common\clients\jinja.py", line 395, in call_macro
+    return macro(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\jinja2\runtime.py", line 770, in __call__
+    return self._invoke(arguments, autoescape)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\jinja2\runtime.py", line 784, in _invoke
+    rv = self._func(*arguments)
+         ^^^^^^^^^^^^^^^^^^^^^^
+  File "<template>", line 52, in macro
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\jinja2\sandbox.py", line 401, in call
+    return __context.call(__obj, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\jinja2\runtime.py", line 303, in call
+    return __obj(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\dbt_common\record.py", line 538, in record_replay_wrapper
+    return func_to_record(*call_args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\dbt\adapters\base\impl.py", line 471, in execute
+    return self.connections.execute(sql=sql, auto_begin=auto_begin, fetch=fetch, limit=limit)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\dbt\adapters\duckdb\connections.py", line 130, in execute
+    return super().execute(sql, auto_begin, fetch, limit)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\dbt\adapters\sql\connections.py", line 219, in execute
+    _, cursor = self.add_query(sql, auto_begin)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\dbt\adapters\sql\connections.py", line 131, in add_query
+    with self.exception_handler(sql):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.2800.0_x64__qbz5n2kfra8p0\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\dbt\adapters\duckdb\connections.py", line 102, in exception_handler
+    self.rollback_if_open()
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\dbt\adapters\base\connections.py", line 125, in rollback_if_open
+    if conn is not None and conn.handle and conn.transaction_open:
+                            ^^^^^^^^^^^
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\dbt\adapters\contracts\connection.py", line 96, in handle
+    self._handle.resolve(self)
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\dbt\adapters\contracts\connection.py", line 120, in resolve
+    return self.opener(connection)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\dbt\adapters\duckdb\connections.py", line 53, in open
+    connection.handle = cls._ENV.handle()
+                        ^^^^^^^^^^^^^^^^^
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\dbt\adapters\duckdb\environments\local.py", line 75, in handle
+    self.conn = self.initialize_db(self.creds, self._plugins)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\dbt\adapters\duckdb\environments\__init__.py", line 159, in initialize_db
+    conn = duckdb.connect(creds.path, read_only=False, config=config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_duckdb.IOException: IO Error: Cannot open file "c:\tempfolder\invoice_ledger\dbt\..\data\invoice_warehouse.duckdb": The process cannot access the file because it is being used by another process.
+
+File is already open in 
+C:\Users\Zuhaib Asad\AppData\Local\Programs\Microsoft VS Code\Code.exe (PID 8748)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\dbt\cli\requires.py", line 182, in wrapper
+    result, success = func(*args, **kwargs)
+                      ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\dbt\cli\requires.py", line 128, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\dbt\cli\requires.py", line 276, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\dbt\cli\requires.py", line 321, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\dbt\cli\requires.py", line 391, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\dbt\cli\requires.py", line 368, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\dbt\cli\requires.py", line 408, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\dbt\cli\main.py", line 587, in run
+    results = task.run()
+              ^^^^^^^^^^
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\dbt\task\runnable.py", line 626, in run
+    result = self.execute_with_hooks(selected_uids)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\dbt\task\runnable.py", line 559, in execute_with_hooks
+    before_run_status = self.before_run(adapter, selected_uids)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\dbt\task\run.py", line 1117, in before_run
+    self.create_schemas(adapter, required_schemas)
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\dbt\task\runnable.py", line 734, in create_schemas
+    existing_schemas_lowered.update(ls_future.result())
+                                    ^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.2800.0_x64__qbz5n2kfra8p0\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.2800.0_x64__qbz5n2kfra8p0\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.2800.0_x64__qbz5n2kfra8p0\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\dbt_common\utils\executor.py", line 16, in connected
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\dbt\task\runnable.py", line 709, in list_schemas
+    for s in adapter.list_schemas(database_quoted)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\dbt\adapters\sql\impl.py", line 218, in list_schemas
+    results = self.execute_macro(LIST_SCHEMAS_MACRO_NAME, kwargs={"database": database})
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\dbt\adapters\base\impl.py", line 1319, in execute_macro
+    with self.connections.exception_handler(f"macro {macro_name}"):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.2800.0_x64__qbz5n2kfra8p0\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\dbt\adapters\duckdb\connections.py", line 102, in exception_handler
+    self.rollback_if_open()
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\dbt\adapters\base\connections.py", line 125, in rollback_if_open
+    if conn is not None and conn.handle and conn.transaction_open:
+                            ^^^^^^^^^^^
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\dbt\adapters\contracts\connection.py", line 96, in handle
+    self._handle.resolve(self)
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\dbt\adapters\contracts\connection.py", line 120, in resolve
+    return self.opener(connection)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\dbt\adapters\duckdb\connections.py", line 53, in open
+    connection.handle = cls._ENV.handle()
+                        ^^^^^^^^^^^^^^^^^
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\dbt\adapters\duckdb\environments\local.py", line 75, in handle
+    self.conn = self.initialize_db(self.creds, self._plugins)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\tempfolder\invoice_ledger\.venv\Lib\site-packages\dbt\adapters\duckdb\environments\__init__.py", line 159, in initialize_db
+    conn = duckdb.connect(creds.path, read_only=False, config=config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_duckdb.IOException: IO Error: Cannot open file "c:\tempfolder\invoice_ledger\dbt\..\data\invoice_warehouse.duckdb": The process cannot access the file because it is being used by another process.
+
+File is already open in 
+C:\Users\Zuhaib Asad\AppData\Local\Programs\Microsoft VS Code\Code.exe (PID 8748)
+
+[0m02:56:55.428083 [debug] [MainThread]: Command `dbt run` failed at 02:56:55.428083 after 1.73 seconds
+[0m02:56:55.428083 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001DC96E38F20>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001DC933B95E0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001DC9891DA00>]}
+[0m02:56:55.429103 [debug] [MainThread]: Flushing usage events
+[0m02:56:56.833334 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m02:57:09.531830 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001F180008770>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001F1FEEE8D70>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001F182C2CC20>]}
+
+
+============================== 02:57:09.536867 | 67922192-30cc-4cff-90a4-e200a016b46c ==============================
+[0m02:57:09.536867 [info ] [MainThread]: Running with dbt=1.11.6
+[0m02:57:09.536867 [debug] [MainThread]: running dbt with arguments {'version_check': 'True', 'no_print': 'None', 'static_parser': 'True', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'printer_width': '80', 'write_json': 'True', 'empty': 'False', 'log_cache_events': 'False', 'introspect': 'True', 'cache_selected_only': 'False', 'fail_fast': 'False', 'debug': 'False', 'log_format': 'default', 'partial_parse': 'True', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'profiles_dir': '.', 'indirect_selection': 'eager', 'use_colors': 'True', 'invocation_command': 'dbt run --profiles-dir . --select stg_invoices', 'use_experimental_parser': 'False', 'log_path': 'C:\\tempfolder\\invoice_ledger\\dbt\\logs'}
+[0m02:57:09.743094 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '67922192-30cc-4cff-90a4-e200a016b46c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001F184100F20>]}
+[0m02:57:09.796111 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '67922192-30cc-4cff-90a4-e200a016b46c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001F180101AC0>]}
+[0m02:57:09.798102 [info ] [MainThread]: Registered adapter: duckdb=1.10.1
+[0m02:57:09.987355 [debug] [MainThread]: checksum: ec27062d18352e9cfca161c166fcc73d2201661a23a3cf3c89196a27f32cfcb8, vars: {}, profile: , target: , version: 1.11.6
+[0m02:57:10.084850 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m02:57:10.084850 [debug] [MainThread]: Nothing changed, skipping partial parsing.
+[0m02:57:10.084850 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m02:57:10.089849 [warn ] [MainThread]: [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+There are 2 unused configuration paths:
+- models.invoice_ledger.mart
+- models.invoice_ledger.intermediate
+[0m02:57:10.116354 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '67922192-30cc-4cff-90a4-e200a016b46c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001F184304230>]}
+[0m02:57:10.175507 [debug] [MainThread]: Wrote artifact WritableManifest to C:\tempfolder\invoice_ledger\dbt\target\manifest.json
+[0m02:57:10.177508 [debug] [MainThread]: Wrote artifact SemanticManifest to C:\tempfolder\invoice_ledger\dbt\target\semantic_manifest.json
+[0m02:57:10.194570 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '67922192-30cc-4cff-90a4-e200a016b46c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001F1846E4230>]}
+[0m02:57:10.195578 [info ] [MainThread]: Found 3 models, 3 sources, 474 macros
+[0m02:57:10.195578 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '67922192-30cc-4cff-90a4-e200a016b46c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001F180C89100>]}
+[0m02:57:10.197595 [info ] [MainThread]: 
+[0m02:57:10.197595 [info ] [MainThread]: Concurrency: 1 threads (target='dev')
+[0m02:57:10.198586 [info ] [MainThread]: 
+[0m02:57:10.198586 [debug] [MainThread]: Acquiring new duckdb connection 'master'
+[0m02:57:10.199585 [debug] [ThreadPool]: Acquiring new duckdb connection 'list_invoice_warehouse'
+[0m02:57:10.258130 [debug] [ThreadPool]: Using duckdb connection "list_invoice_warehouse"
+[0m02:57:10.259124 [debug] [ThreadPool]: On list_invoice_warehouse: /* {"app": "dbt", "dbt_version": "1.11.6", "profile_name": "invoice_ledger", "target_name": "dev", "connection_name": "list_invoice_warehouse"} */
+
+    
+    select schema_name
+    from system.information_schema.schemata
+    
+    where lower(catalog_name) = '"invoice_warehouse"'
+    
+  
+  
+[0m02:57:10.259124 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m02:57:10.274340 [debug] [ThreadPool]: SQL status: OK in 0.015 seconds
+[0m02:57:10.276339 [debug] [ThreadPool]: On list_invoice_warehouse: Close
+[0m02:57:10.277339 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_invoice_warehouse, now create_invoice_warehouse_dev)
+[0m02:57:10.277339 [debug] [ThreadPool]: Creating schema "database: "invoice_warehouse"
+schema: "dev"
+"
+[0m02:57:10.283350 [debug] [ThreadPool]: Using duckdb connection "create_invoice_warehouse_dev"
+[0m02:57:10.283350 [debug] [ThreadPool]: On create_invoice_warehouse_dev: /* {"app": "dbt", "dbt_version": "1.11.6", "profile_name": "invoice_ledger", "target_name": "dev", "connection_name": "create_invoice_warehouse_dev"} */
+
+    
+        select type from duckdb_databases()
+        where lower(database_name)='invoice_warehouse'
+        and type='sqlite'
+    
+  
+[0m02:57:10.283350 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m02:57:10.284336 [debug] [ThreadPool]: SQL status: OK in 0.001 seconds
+[0m02:57:10.285347 [debug] [ThreadPool]: Using duckdb connection "create_invoice_warehouse_dev"
+[0m02:57:10.286339 [debug] [ThreadPool]: On create_invoice_warehouse_dev: BEGIN
+[0m02:57:10.286339 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m02:57:10.286339 [debug] [ThreadPool]: Using duckdb connection "create_invoice_warehouse_dev"
+[0m02:57:10.287336 [debug] [ThreadPool]: On create_invoice_warehouse_dev: /* {"app": "dbt", "dbt_version": "1.11.6", "profile_name": "invoice_ledger", "target_name": "dev", "connection_name": "create_invoice_warehouse_dev"} */
+
+    
+    
+        create schema if not exists "invoice_warehouse"."dev"
+    
+[0m02:57:10.287336 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m02:57:10.288337 [debug] [ThreadPool]: On create_invoice_warehouse_dev: COMMIT
+[0m02:57:10.288337 [debug] [ThreadPool]: Using duckdb connection "create_invoice_warehouse_dev"
+[0m02:57:10.288337 [debug] [ThreadPool]: On create_invoice_warehouse_dev: COMMIT
+[0m02:57:10.292333 [debug] [ThreadPool]: SQL status: OK in 0.003 seconds
+[0m02:57:10.292333 [debug] [ThreadPool]: On create_invoice_warehouse_dev: Close
+[0m02:57:10.297342 [debug] [ThreadPool]: Acquiring new duckdb connection 'list_invoice_warehouse_dev'
+[0m02:57:10.301342 [debug] [ThreadPool]: Using duckdb connection "list_invoice_warehouse_dev"
+[0m02:57:10.302341 [debug] [ThreadPool]: On list_invoice_warehouse_dev: BEGIN
+[0m02:57:10.302341 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m02:57:10.303340 [debug] [ThreadPool]: SQL status: OK in 0.001 seconds
+[0m02:57:10.303340 [debug] [ThreadPool]: Using duckdb connection "list_invoice_warehouse_dev"
+[0m02:57:10.303340 [debug] [ThreadPool]: On list_invoice_warehouse_dev: /* {"app": "dbt", "dbt_version": "1.11.6", "profile_name": "invoice_ledger", "target_name": "dev", "connection_name": "list_invoice_warehouse_dev"} */
+select
+      'invoice_warehouse' as database,
+      table_name as name,
+      table_schema as schema,
+      CASE table_type
+        WHEN 'BASE TABLE' THEN 'table'
+        WHEN 'VIEW' THEN 'view'
+        WHEN 'LOCAL TEMPORARY' THEN 'table'
+        END as type
+    from system.information_schema.tables
+    where lower(table_schema) = 'dev'
+    and lower(table_catalog) = 'invoice_warehouse'
+  
+[0m02:57:10.316341 [debug] [ThreadPool]: SQL status: OK in 0.013 seconds
+[0m02:57:10.318342 [debug] [ThreadPool]: On list_invoice_warehouse_dev: ROLLBACK
+[0m02:57:10.319341 [debug] [ThreadPool]: Failed to rollback 'list_invoice_warehouse_dev'
+[0m02:57:10.319341 [debug] [ThreadPool]: On list_invoice_warehouse_dev: Close
+[0m02:57:10.320340 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '67922192-30cc-4cff-90a4-e200a016b46c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001F184845A90>]}
+[0m02:57:10.320340 [debug] [MainThread]: Using duckdb connection "master"
+[0m02:57:10.321360 [debug] [MainThread]: On master: BEGIN
+[0m02:57:10.321360 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m02:57:10.321360 [debug] [MainThread]: SQL status: OK in 0.000 seconds
+[0m02:57:10.322359 [debug] [MainThread]: On master: COMMIT
+[0m02:57:10.322359 [debug] [MainThread]: Using duckdb connection "master"
+[0m02:57:10.322359 [debug] [MainThread]: On master: COMMIT
+[0m02:57:10.323362 [debug] [MainThread]: SQL status: OK in 0.000 seconds
+[0m02:57:10.323362 [debug] [MainThread]: On master: Close
+[0m02:57:10.327354 [debug] [Thread-1 (]: Began running node model.invoice_ledger.stg_invoices
+[0m02:57:10.328370 [info ] [Thread-1 (]: 1 of 1 START sql view model dev.stg_invoices ................................... [RUN]
+[0m02:57:10.329375 [debug] [Thread-1 (]: Acquiring new duckdb connection 'model.invoice_ledger.stg_invoices'
+[0m02:57:10.329375 [debug] [Thread-1 (]: Began compiling node model.invoice_ledger.stg_invoices
+[0m02:57:10.334371 [debug] [Thread-1 (]: Writing injected SQL for node "model.invoice_ledger.stg_invoices"
+[0m02:57:10.335902 [debug] [Thread-1 (]: Began executing node model.invoice_ledger.stg_invoices
+[0m02:57:10.366770 [debug] [Thread-1 (]: Writing runtime sql for node "model.invoice_ledger.stg_invoices"
+[0m02:57:10.367771 [debug] [Thread-1 (]: Using duckdb connection "model.invoice_ledger.stg_invoices"
+[0m02:57:10.367771 [debug] [Thread-1 (]: On model.invoice_ledger.stg_invoices: BEGIN
+[0m02:57:10.368798 [debug] [Thread-1 (]: Opening a new connection, currently in state init
+[0m02:57:10.368798 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m02:57:10.369807 [debug] [Thread-1 (]: Using duckdb connection "model.invoice_ledger.stg_invoices"
+[0m02:57:10.369807 [debug] [Thread-1 (]: On model.invoice_ledger.stg_invoices: /* {"app": "dbt", "dbt_version": "1.11.6", "profile_name": "invoice_ledger", "target_name": "dev", "node_id": "model.invoice_ledger.stg_invoices"} */
+
+  
+  create view "invoice_warehouse"."dev"."stg_invoices__dbt_tmp" as (
+    SELECT *
+FROM "invoice_warehouse"."raw"."invoices"
+  );
+
+[0m02:57:10.370846 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m02:57:10.376773 [debug] [Thread-1 (]: Using duckdb connection "model.invoice_ledger.stg_invoices"
+[0m02:57:10.376773 [debug] [Thread-1 (]: On model.invoice_ledger.stg_invoices: /* {"app": "dbt", "dbt_version": "1.11.6", "profile_name": "invoice_ledger", "target_name": "dev", "node_id": "model.invoice_ledger.stg_invoices"} */
+alter view "invoice_warehouse"."dev"."stg_invoices__dbt_tmp" rename to "stg_invoices"
+[0m02:57:10.377763 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m02:57:10.385771 [debug] [Thread-1 (]: On model.invoice_ledger.stg_invoices: COMMIT
+[0m02:57:10.386771 [debug] [Thread-1 (]: Using duckdb connection "model.invoice_ledger.stg_invoices"
+[0m02:57:10.386771 [debug] [Thread-1 (]: On model.invoice_ledger.stg_invoices: COMMIT
+[0m02:57:10.389836 [debug] [Thread-1 (]: SQL status: OK in 0.002 seconds
+[0m02:57:10.395783 [debug] [Thread-1 (]: Using duckdb connection "model.invoice_ledger.stg_invoices"
+[0m02:57:10.395783 [debug] [Thread-1 (]: On model.invoice_ledger.stg_invoices: /* {"app": "dbt", "dbt_version": "1.11.6", "profile_name": "invoice_ledger", "target_name": "dev", "node_id": "model.invoice_ledger.stg_invoices"} */
+
+      drop view if exists "invoice_warehouse"."dev"."stg_invoices__dbt_backup" cascade
+    
+[0m02:57:10.396783 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m02:57:10.398787 [debug] [Thread-1 (]: On model.invoice_ledger.stg_invoices: Close
+[0m02:57:10.400786 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '67922192-30cc-4cff-90a4-e200a016b46c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001F184CA0F80>]}
+[0m02:57:10.400786 [info ] [Thread-1 (]: 1 of 1 OK created sql view model dev.stg_invoices .............................. [[32mOK[0m in 0.07s]
+[0m02:57:10.401783 [debug] [Thread-1 (]: Finished running node model.invoice_ledger.stg_invoices
+[0m02:57:10.402763 [debug] [MainThread]: Using duckdb connection "master"
+[0m02:57:10.403764 [debug] [MainThread]: On master: BEGIN
+[0m02:57:10.403764 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m02:57:10.404796 [debug] [MainThread]: SQL status: OK in 0.001 seconds
+[0m02:57:10.404796 [debug] [MainThread]: On master: COMMIT
+[0m02:57:10.404796 [debug] [MainThread]: Using duckdb connection "master"
+[0m02:57:10.404796 [debug] [MainThread]: On master: COMMIT
+[0m02:57:10.405783 [debug] [MainThread]: SQL status: OK in 0.000 seconds
+[0m02:57:10.405783 [debug] [MainThread]: On master: Close
+[0m02:57:10.405783 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m02:57:10.406785 [debug] [MainThread]: Connection 'create_invoice_warehouse_dev' was properly closed.
+[0m02:57:10.406785 [debug] [MainThread]: Connection 'list_invoice_warehouse_dev' was properly closed.
+[0m02:57:10.406785 [debug] [MainThread]: Connection 'model.invoice_ledger.stg_invoices' was properly closed.
+[0m02:57:10.406785 [info ] [MainThread]: 
+[0m02:57:10.407764 [info ] [MainThread]: Finished running 1 view model in 0 hours 0 minutes and 0.21 seconds (0.21s).
+[0m02:57:10.408766 [debug] [MainThread]: Command end result
+[0m02:57:10.435870 [debug] [MainThread]: Wrote artifact WritableManifest to C:\tempfolder\invoice_ledger\dbt\target\manifest.json
+[0m02:57:10.438882 [debug] [MainThread]: Wrote artifact SemanticManifest to C:\tempfolder\invoice_ledger\dbt\target\semantic_manifest.json
+[0m02:57:10.450375 [debug] [MainThread]: Wrote artifact RunExecutionResult to C:\tempfolder\invoice_ledger\dbt\target\run_results.json
+[0m02:57:10.450375 [info ] [MainThread]: 
+[0m02:57:10.451880 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m02:57:10.453351 [info ] [MainThread]: 
+[0m02:57:10.453351 [info ] [MainThread]: Done. PASS=1 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=1
+[0m02:57:10.455367 [debug] [MainThread]: Command `dbt run` succeeded at 02:57:10.455367 after 1.05 seconds
+[0m02:57:10.456368 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001F1842995B0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001F18437C350>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001F18427B9B0>]}
+[0m02:57:10.456368 [debug] [MainThread]: Flushing usage events
+[0m02:57:11.596141 [debug] [MainThread]: An error was encountered while trying to flush usage events

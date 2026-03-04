@@ -1,0 +1,21 @@
+name: invoice_ledger
+version: '1.0'
+config-version: 2
+
+profile: invoice_ledger
+
+model-paths: ["models"]
+test-paths: ["tests"]
+macro-paths: ["macros"]
+
+target-path: "target"
+clean-targets: ["target", "dbt_packages"]
+
+models:
+  invoice_ledger:
+    staging:
+      +materialized: view
+    intermediate:
+      +materialized: view
+    mart:
+      +materialized: table

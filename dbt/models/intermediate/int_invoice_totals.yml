@@ -1,0 +1,76 @@
+version: 2
+
+models:
+  - name: int_invoice_totals
+    description: >
+      One row per invoice with aggregated line count and total amount.
+    
+    config:
+        materialized: view
+
+    columns:
+      - name: invoice_id
+        description: "Primary key"
+        tests:
+          - unique
+          - not_null
+
+      - name: customer_id
+        description: "unique customer_ids"
+
+      - name: customer_name
+        description: "just customer name"
+
+      - name: customer_country
+        description: "just customer country"
+      
+      - name: customer_segment
+        description: "just customer segment"
+        tests:
+          - accepted_values:
+              values: ['startup', 'enterprise', 'SMB', 'unknown']
+      
+      - name: invoice_amount
+        description: "total amount for the invoice coming from raw source"
+        tests:
+          - not_null
+          - is_non_negative
+      
+      - name: invoice_status
+        description: "status of the invoice"
+        tests:
+          - accepted_values:
+              values: ['paid', 'overdue', 'pending', 'unknown']
+      
+      - name: invoice_date
+        description: "issue date of the invoice"
+        tests:
+          - not_null
+
+      - name: invoice_due_date
+        description: "due date of the invoice"
+        tests:
+          - not_null
+      
+      - name: payment_terms_days
+        description: "payment terms in days calculated as difference between due date and invoice date"
+        tests:
+          - not_null
+          - is_non_negative
+        
+      - name: line_item_count
+        description: "number of line items for the invoice"
+        tests:
+          - not_null
+          - is_non_negative
+      
+      - name: calculated_invoice_total
+        description: "calculated total amount for the invoice based on line items (quantity * unit price)"
+        tests:
+          - not_null
+          - is_non_negative
+      
+      - name: amount_discrepancy
+        description: "discrepancy between invoice_amount and calculated_invoice_total (invoice_amount - calculated_invoice_total)"
+        tests:
+          - not_null

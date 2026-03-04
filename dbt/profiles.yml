@@ -1,0 +1,17 @@
+invoice_ledger:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: "{{ env_var('WAREHOUSE_PATH', '../data/invoice_warehouse.duckdb') }}"
+      schema: dev
+
+    blue:
+      type: duckdb
+      path: "{{ env_var('WAREHOUSE_PATH', '../data/invoice_warehouse.duckdb') }}"
+      schema: prod_blue
+
+    green:
+      type: duckdb
+      path: "{{ env_var('WAREHOUSE_PATH', '../data/invoice_warehouse.duckdb') }}"
+      schema: prod_green

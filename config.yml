@@ -1,11 +1,16 @@
 database: 
-  name: "invoice_warehouse.duckdb"
+  name: "data/invoice_warehouse.duckdb"
 
 schemas:
   raw: "raw"
-  staging: "staging"
-  intermeditate: "intermediate"
-  mart: "mart"
+  dev: "dev"
+  blue: "prod_blue"
+  green: "prod_green"
+
+tables:
+  customers: "customers"
+  invoices: "invoices"
+  invoice_line_items: "invoice_line_items"
 
 raw_data:
-  raw_data_path: "data/raw_sample_data/"  
+  raw_data_path: "data/raw_sample_data/"

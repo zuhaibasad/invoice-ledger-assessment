@@ -1,0 +1,116 @@
+version: 2
+
+sources:
+  - name: raw
+    schema: raw
+    description: "Raw tables loaded from CSVs by load_data.py"
+    tables:
+      - name: invoices
+      - name: customers
+      - name: invoice_line_items
+
+models:
+  - name: stg_invoices
+    description: "Staging model for invoices, selecting from raw.invoices and 1:1 mapping of raw invoice, no business logic here"
+      
+    config:
+        materialized: view
+    
+    columns:
+      - name: invoice_id
+        description: "Unique identifier for each invoice, Primary key"
+        tests: 
+          - unique
+          - not_null
+
+      - name: customer_id
+        description: "Identifier for the customer associated with the invoice, foreign key to customers table"
+        tests: 
+          - not_null
+
+      - name: invoice_date
+        description: "Date when the invoice was issued"
+        tests:
+          - not_null
+
+      - name: invoice_due_date
+        description: "Date when the invoice is due"
+        tests:
+          - not_null
+
+      - name: invoice_amount
+        description: "Total amount for the invoice, can not be null and should be non-negative"
+        tests:
+          - not_null
+          - is_non_negative
+      
+      - name: invoice_status
+        description: "Current status of the invoice, allowed values are 'paid', 'overdue', 'pending' and repalced NULL with 'unknow'"
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['paid', 'overdue', 'pending', 'unknow']
+  
+  - name: stg_customers
+    description: "Staging model for customers, selecting from raw.customers and 1:1 mapping of raw customer, no business logic here"
+        
+    config:
+        materialized: view
+
+    columns:
+      - name: customer_id
+        description: "Unique identifier for each customer, Primary key"
+        tests: 
+          - unique
+          - not_null
+
+      - name: customer_name
+        description: "Name of the customer, trimmed for whitespace and NULL in case of empty string"
+
+      - name: customer_email
+        description: "Email address of the customer"
+
+      - name: customer_country
+        description: "Phone number of the customer"
+      
+      - name: customer_segment
+        description: "Market segment of the customer, allowed values are 'SMB', 'Enterprise', 'Startup' and replaced NULL with 'unknown'"
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['SMB', 'Enterprise', 'Startup', 'unknown']
+
+  - name: stg_invoice_line_items
+    description: "Staging model for invoice line items, selecting from raw.invoice_line_items and 1:1 mapping of raw invoice line items, no business logic here"
+        
+    config:
+        materialized: view
+        
+    columns:
+      - name: line_item_id
+        description: "Unique identifier for each line item, Primary key"
+        tests:
+          - not_null
+
+      - name: invoice_id
+        description: "Identifier for the invoice associated with the line item, foreign key to invoices table
+        tests: 
+          - not_null
+
+      - name: product_name
+        description: "Name of the product or service for the line item"
+      
+      - name: quantity
+        description: "Quantity of the product or service for the line item, can not be null and should be non-negative"
+        tests:
+          - not_null
+          - is_non_negative
+      
+      - name: unit_price
+        description: "Unit price of the product or service for the line item, can not be null and should be non-negative"
+        tests:
+          - not_null
+          - is_non_negative
+      
+
+      
