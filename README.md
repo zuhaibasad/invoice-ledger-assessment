@@ -404,13 +404,13 @@ invoice_ledger/
 │   │   └── mart/                   # Contracted, versioned output
 │   ├── tests/                      # Singular + generic tests
 │   └── macros/
-│       └── swap_on_success.sql     # Blue-green swap (only if all pass)
+│       └── swap_proxy_view_on_success.sql     # Blue-green swap (only if all pass)
 │
 ├── api/
 │   ├── main.py                     # App entry, versioned routers, health
 │   ├── config.py                   # pydantic-settings configuration
 │   ├── database.py                 # Read-only DuckDB connection
-│   ├── contracts/v1/v1.py          # Pydantic models (the rigid contract)
+│   ├── contracts/v1.py          # Pydantic models (the rigid contract)
 │   ├── routers/v1/invoices.py      # GET /api/v1/invoices
 │   └── tests/                      # Contract + integration tests
 │
