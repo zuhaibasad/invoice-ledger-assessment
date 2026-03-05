@@ -16,23 +16,22 @@
 
     {% if target.name in ['blue', 'green'] and execute %}
 
-        {# Count failures and skips across models and tests #}
-        {% set error_count = 0 %}
-        {% set failure_count = 0 %}
-        {% set skip_count = 0 %}
+        {# Count failures and skips across models and tests. #}
+
+        {% set ns = namespace(error_count=0, failure_count=0, skip_count=0, total_failures=0) %}
         {% for result in results %}
             {% if result.status == 'error' %}
-                {% set error_count = error_count + 1 %}
+                {% set ns.error_count = ns.error_count + 1 %}
             {% elif result.status == 'fail' %}
-                {% set failure_count = failure_count + 1 %}
+                {% set ns.failure_count = ns.failure_count + 1 %}
             {% elif result.status == 'skipped' %}
-                {% set skip_count = skip_count + 1 %}
+                {% set ns.skip_count = ns.skip_count + 1 %}
             {% endif %}
         {% endfor %}
-        {% set total_failures = error_count + failure_count + skip_count %}
+        {% set ns.total_failures = ns.error_count + ns.failure_count + ns.skip_count %}
 
-        {# Only swap if there are NO errors/failures AND the mart table actually exists #}
-        {% if total_failures == 0 %}
+        {# Only swap if there are NO errors/failures/skips #}
+        {% if ns.total_failures == 0 %}
 
             {{ log("All nodes passed. Swapping proxy view to " ~ target.schema, info=True) }}
 
@@ -59,12 +58,7 @@
 
         {% else %}
 
-            {% if total_failures > 0 %}
-                {{ log(total_failures ~ " failure(s) detected. Proxy view NOT swapped.", info=True) }}
-            {% endif %}
-            {% if skip_count > 0 %}
-                {{ log(skip_count ~ " node(s) skipped due to upstream failures. Proxy view NOT swapped.", info=True) }}
-            {% endif %}
+            {{ log(ns.total_failures ~ " failure(s)/skip(s) detected. Proxy view NOT swapped. Previous deployment remains active.", info=True) }}
 
         {% endif %}
 

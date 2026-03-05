@@ -1,6 +1,8 @@
 #Docker
 .docker/
 
+codebase-context.md
+
 # VS Code
 .vscode/
 
