@@ -1,0 +1,20 @@
+FROM python:3.12-slim
+
+WORKDIR /dbt
+
+RUN pip install --no-cache-dir dbt-core==1.8.0 dbt-duckdb==1.8.0
+
+COPY dbt/dbt_project.yml .
+COPY dbt/profiles.yml .
+COPY dbt/packages.yml .
+
+COPY dbt/models/ ./models/
+COPY dbt/tests/ ./tests/
+COPY dbt/macros/ ./macros/
+COPY docker/deploy.sh /deploy.sh
+
+RUN chmod +x /deploy.sh
+
+ENV WAREHOUSE_PATH=/data/invoice_warehouse.duckdb
+
+CMD ["/deploy.sh"]

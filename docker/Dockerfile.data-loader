@@ -1,0 +1,17 @@
+FROM python:3.12-slim
+
+WORKDIR /data
+
+# Install only what the loader needs
+RUN pip install --no-cache-dir duckdb
+
+# Copy the loader script and raw CSV data
+COPY data/load_data_into_db.py .
+COPY data/raw_sample_data/ ./raw_sample_data/
+
+# In Docker: DuckDB file goes on the shared volume,
+# CSVs are in the container's /loader/raw_sample_data/
+ENV WAREHOUSE_PATH=/data/invoice_warehouse.duckdb
+ENV RAW_DATA_PATH=/data/raw_sample_data/
+
+CMD ["python", "load_data_into_db.py"]

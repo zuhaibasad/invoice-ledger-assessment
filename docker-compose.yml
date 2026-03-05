@@ -1,0 +1,69 @@
+# docker-compose.yml
+#
+# For Reviewer : docker compose up --build
+#
+# Execution order:
+#   1. data-loader  → Loads raw CSVs into DuckDB (raw schema). Exits.
+#   2. dbt-runner   → Builds all models, runs tests, swaps proxy view. Exits.
+#   3. api          → FastAPI serves from public.mart_invoice_ledger. Stays running.
+#   4. web          → React dev server with proxy to API. Stays running.
+#
+# The shared volume (/warehouse) is the single integration point.
+# data-loader writes → dbt reads/writes → API reads (read-only).
+#
+# After startup:
+#   Frontend:  http://localhost:3000
+#   API:       http://localhost:8000/api/v1/invoices
+#   API Docs:  http://localhost:8000/api/docs
+#   Health:    http://localhost:8000/api/health
+
+services:
+  data-loader:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.data-loader
+    volumes:
+      - warehouse:/data
+    environment:
+      - WAREHOUSE_PATH=/data/invoice_warehouse.duckdb
+
+  dbt-runner:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.dbt
+    volumes:
+      - warehouse:/data
+    environment:
+      - WAREHOUSE_PATH=/data/invoice_warehouse.duckdb
+    depends_on:
+      data-loader:
+        condition: service_completed_successfully
+
+  api:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.api
+    ports:
+      - "8000:8000"
+    volumes:
+      - warehouse:/data:ro
+    environment:
+      - LEDGER_DUCKDB_PATH=/data/invoice_warehouse.duckdb
+    depends_on:
+      dbt-runner:
+        condition: service_completed_successfully
+
+  web:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.web
+    ports:
+      - "3000:3000"
+    environment:
+      - API_URL=http://api:8000
+    depends_on:
+      - api
+
+volumes:
+  warehouse:
+    driver: local

@@ -1,6 +1,6 @@
 
   
-  create view "invoice_warehouse"."prod_blue"."stg_invoices__dbt_tmp" as (
+  create view "invoice_warehouse"."prod_green"."stg_invoices__dbt_tmp" as (
     WITH duped_flagged AS (
     SELECT *,
         ROW_NUMBER() OVER (PARTITION BY invoice_id ORDER BY invoice_id) AS rn

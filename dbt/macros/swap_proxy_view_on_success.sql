@@ -16,18 +16,22 @@
 
     {% if target.name in ['blue', 'green'] and execute %}
 
-        {# Count failures across models and tests #}
+        {# Count failures and skips across models and tests #}
         {% set error_count = 0 %}
         {% set failure_count = 0 %}
+        {% set skip_count = 0 %}
         {% for result in results %}
             {% if result.status == 'error' %}
                 {% set error_count = error_count + 1 %}
             {% elif result.status == 'fail' %}
                 {% set failure_count = failure_count + 1 %}
+            {% elif result.status == 'skipped' %}
+                {% set skip_count = skip_count + 1 %}
             {% endif %}
         {% endfor %}
-        {% set total_failures = error_count + failure_count %}
+        {% set total_failures = error_count + failure_count + skip_count %}
 
+        {# Only swap if there are NO errors/failures AND the mart table actually exists #}
         {% if total_failures == 0 %}
 
             {{ log("All nodes passed. Swapping proxy view to " ~ target.schema, info=True) }}
@@ -55,7 +59,12 @@
 
         {% else %}
 
-            {{ log(total_failures ~ " failure(s) detected. Proxy view NOT swapped.", info=True) }}
+            {% if total_failures > 0 %}
+                {{ log(total_failures ~ " failure(s) detected. Proxy view NOT swapped.", info=True) }}
+            {% endif %}
+            {% if skip_count > 0 %}
+                {{ log(skip_count ~ " node(s) skipped due to upstream failures. Proxy view NOT swapped.", info=True) }}
+            {% endif %}
 
         {% endif %}
 

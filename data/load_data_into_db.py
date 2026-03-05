@@ -1,17 +1,9 @@
-import os
-from pathlib import Path
-import glob
 import duckdb
-import yaml
+import os
 
+DB_PATH = os.environ.get("WAREHOUSE_PATH", "data/invoice_warehouse.duckdb")
+CSV_DIR_PATH = os.environ.get("RAW_DATA_PATH", "data/raw_sample_data/")
 
-CONFIG_FILE_PATH = Path(__file__).parent.parent / 'config.yml'
-
-def load_config(config_file_path):
-
-    file = open(config_file_path, 'r')
-    config = yaml.safe_load(file)
-    return config
 
 def load_csv_files_to_duckdb(conn, schema, table_name, table_schema, csv_file_path):
     """
@@ -35,10 +27,9 @@ def load_csv_files_to_duckdb(conn, schema, table_name, table_schema, csv_file_pa
     
 
 def main():
-    config = load_config(CONFIG_FILE_PATH)
-    db_path = config['database']['path']
-    raw_schema = config['schemas']['raw']
-    conn = duckdb.connect('invoice_warehouse.duckdb')
+   
+    raw_schema = "raw"
+    conn = duckdb.connect(DB_PATH)
     conn.execute(f"CREATE SCHEMA IF NOT EXISTS {raw_schema}")
     TABLE_SCHEMAS = {
         "invoices": """
@@ -64,10 +55,10 @@ def main():
             unit_price    VARCHAR
         """
     }
-    load_csv_files_to_duckdb(conn, schema=raw_schema, table_name='invoices', table_schema=TABLE_SCHEMAS['invoices'], csv_file_path='raw_sample_data/invoices.csv')
-    load_csv_files_to_duckdb(conn, schema=raw_schema, table_name='customers', table_schema=TABLE_SCHEMAS['customers'], csv_file_path='raw_sample_data/customers.csv')
-    load_csv_files_to_duckdb(conn, schema=raw_schema, table_name='invoice_line_items', table_schema=TABLE_SCHEMAS['invoice_line_items'], csv_file_path='raw_sample_data/invoice_line_items.csv')
-    
+    load_csv_files_to_duckdb(conn, schema=raw_schema, table_name='invoices', table_schema=TABLE_SCHEMAS['invoices'], csv_file_path=f'{CSV_DIR_PATH}/invoices.csv')
+    load_csv_files_to_duckdb(conn, schema=raw_schema, table_name='customers', table_schema=TABLE_SCHEMAS['customers'], csv_file_path=f'{CSV_DIR_PATH}/customers.csv')
+    load_csv_files_to_duckdb(conn, schema=raw_schema, table_name='invoice_line_items', table_schema=TABLE_SCHEMAS['invoice_line_items'], csv_file_path=f'{CSV_DIR_PATH}/invoice_line_items.csv')
+
     # Display summary of loaded tables
     tables = conn.execute(f"""SELECT table_name FROM information_schema.tables WHERE table_schema='{raw_schema}'""").fetchall()
     print(f"\nTotal tables created: {len(tables)}")

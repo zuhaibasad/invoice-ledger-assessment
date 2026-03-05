@@ -1,0 +1,12 @@
+# dbt + DuckDB adapter (brings in dbt-core, dbt-adapters, duckdb as transitive deps)
+dbt-duckdb==1.10.1
+
+# API
+fastapi==0.135.1
+uvicorn[standard]==0.41.0
+pydantic-settings==2.13.1
+PyYAML==6.0.3
+
+# Testing
+httpx==0.28.1
+pytest==9.0.2

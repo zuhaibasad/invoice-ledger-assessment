@@ -1,0 +1,14 @@
+.venv
+venv
+__pycache__
+node_modules
+*.duckdb
+*.duckdb.wal
+.git
+.github
+data/target
+data/dbt_packages
+data/logs
+web/dist
+web/build
+.env
