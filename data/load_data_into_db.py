@@ -24,7 +24,7 @@ def load_csv_files_to_duckdb(conn, schema, table_name, table_schema, csv_file_pa
     
     try:
             conn.execute(f"""
-                CREATE TABLE IF NOT EXISTS {schema}.{table_name} (
+                CREATE OR REPLACE TABLE {schema}.{table_name} (
                     {table_schema}
                 );
                 COPY {schema}.{table_name} FROM '{csv_file_path}' (HEADER TRUE);
@@ -36,10 +36,9 @@ def load_csv_files_to_duckdb(conn, schema, table_name, table_schema, csv_file_pa
 
 def main():
     config = load_config(CONFIG_FILE_PATH)
-    db_path = config['database']['name']
+    db_path = config['database']['path']
     raw_schema = config['schemas']['raw']
-
-    conn = duckdb.connect(db_path)
+    conn = duckdb.connect('invoice_warehouse.duckdb')
     conn.execute(f"CREATE SCHEMA IF NOT EXISTS {raw_schema}")
     TABLE_SCHEMAS = {
         "invoices": """

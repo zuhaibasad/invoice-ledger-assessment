@@ -1,18 +1,35 @@
-# Python
-__pycache__/
-*.pyc
-.venv/
-
-#DuckDB
-data/invoice_warehouse.db
-data/invoice_warehouse.db.wal
-
 #Docker
 .docker/
-
 
 # VS Code
 .vscode/
 
-# OS
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+.pytest_cache/
+*.egg-info/
+
+# DuckDB — keep .duckdb files (reviewer needs them), ignore only WAL/temp files
+*.wal
+*.duckdb.wal
+
+# dbt — generated artifacts, never commit
+dbt/target/
+dbt/logs/
+dbt/dbt_packages/
+dbt/package-lock.yml
+
+# Node / React
+web/node_modules/
+web/dist/
+web/.eslintcache
+
+# OS / Editor
 .DS_Store
+.vscode/
+.docker/
+Thumbs.db

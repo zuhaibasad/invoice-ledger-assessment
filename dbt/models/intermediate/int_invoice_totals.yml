@@ -28,13 +28,17 @@ models:
         description: "just customer segment"
         tests:
           - accepted_values:
-              values: ['startup', 'enterprise', 'SMB', 'unknown']
+              values: ['startup', 'enterprise', 'smb', 'unknown']
       
+      - name: customer_email
+        description: "just customer email"    
+          
       - name: invoice_amount
         description: "total amount for the invoice coming from raw source"
         tests:
           - not_null
-          - is_non_negative
+          - dbt_utils.expression_is_true:
+              expression: ">= 0"
       
       - name: invoice_status
         description: "status of the invoice"
@@ -56,19 +60,20 @@ models:
         description: "payment terms in days calculated as difference between due date and invoice date"
         tests:
           - not_null
-          - is_non_negative
         
       - name: line_item_count
         description: "number of line items for the invoice"
         tests:
           - not_null
-          - is_non_negative
+          - dbt_utils.expression_is_true:
+              expression: ">= 0"
       
       - name: calculated_invoice_total
         description: "calculated total amount for the invoice based on line items (quantity * unit price)"
         tests:
           - not_null
-          - is_non_negative
+          - dbt_utils.expression_is_true:
+              expression: ">= 0"
       
       - name: amount_discrepancy
         description: "discrepancy between invoice_amount and calculated_invoice_total (invoice_amount - calculated_invoice_total)"

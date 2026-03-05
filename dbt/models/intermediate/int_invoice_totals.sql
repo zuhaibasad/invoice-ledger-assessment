@@ -10,14 +10,11 @@
     
 WITH invoices AS (
     SELECT * FROM {{ ref('stg_invoices') }}
-    WHERE is_duplicate = false
-      AND is_invalid_amount = false
-      AND is_invalid_date = false
+    
 ),
 
 customers AS (
     SELECT * FROM {{ ref('stg_customers') }}
-    WHERE is_duplicate = false
 ),
 
 line_totals AS (
@@ -26,7 +23,6 @@ line_totals AS (
             COUNT(line_item_id) AS line_item_count,
             SUM(quantity * unit_price) AS calculated_invoice_total
     FROM {{ ref('stg_invoice_line_items') }}
-    WHERE is_duplicate = false
     GROUP BY invoice_id
 )
 
@@ -36,14 +32,15 @@ SELECT
     c.customer_name,
     c.customer_country,
     c.customer_segment,
-    i.amount AS invoice_amount,
+    c.customer_email,
+    i.invoice_amount,
     i.invoice_status,
     i.invoice_date,
     i.invoice_due_date,
     DATEDIFF('day', i.invoice_date, i.invoice_due_date) AS payment_terms_days,
     COALESCE(lt.line_item_count, 0) AS line_item_count, -- avoid nulls for invoices without line items
     COALESCE(lt.calculated_invoice_total, 0.0) AS calculated_invoice_total, -- avoid nulls for invoices without line items
-    i.amount - COALESCE(lt.calculated_invoice_total, 0.0) AS amount_discrepancy
+    i.invoice_amount - COALESCE(lt.calculated_invoice_total, 0.0) AS amount_discrepancy
 FROM invoices i 
     LEFT JOIN customers c ON i.customer_id = c.customer_id -- LEFT JOIN makes sure that we dont drop invoices that shoud be there but got no customers assigned
     LEFT JOIN line_totals lt ON i.invoice_id  = lt.invoice_id -- this LEFT JOIN makes sure that we dont skip invoices without line_items like draft invoices or other type

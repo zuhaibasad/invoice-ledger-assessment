@@ -14,7 +14,7 @@
 
 {% macro swap_proxy_view_on_success(results) %}
 
-    {% if target.name == 'prod' and execute %}
+    {% if target.name in ['blue', 'green'] and execute %}
 
         {# Count failures across models and tests #}
         {% set error_count = 0 %}
@@ -30,29 +30,32 @@
 
         {% if total_failures == 0 %}
 
-            {# All test passed, no failure so it is safe to swap #}
-            {% set deploy_schema = get_inactive_schema() %}
+            {{ log("All nodes passed. Swapping proxy view to " ~ target.schema, info=True) }}
 
-            {{ log("All nodes passed. Swapping proxy view to " ~ deploy_schema, info=True) }}
+            {% set create_schema_sql %}
+                create schema if not exists public
+            {% endset %}
+            {% do run_query(create_schema_sql) %}
 
-            
-            {% do run_query("
-                create or replace view public.mart_invoice_ledger as (
-                    select * from " ~ deploy_schema ~ ".mart_invoice_ledger
-                )
-            ") %}
+            {% set swap_view_sql %}
+                create or replace view public.mart_invoice_ledger as
+                select * from {{ target.schema }}.mart_invoice_ledger_v1
+            {% endset %}
+            {% do run_query(swap_view_sql) %}
 
-            {# Update deployment state & record which color is now active #}
-            {% do run_query("create or replace table public.deployment_state as (
-                             select '" ~ deploy_schema ~ "' as active_schema, now() as deployed_at
-                           "); 
-            %}
+            {% set update_state_sql %}
+                create or replace table public.deployment_state as
+                select
+                    '{{ target.schema }}' as active_schema,
+                    now() as deployed_at
+            {% endset %}
+            {% do run_query(update_state_sql) %}
 
-            {{ log("Deployment complete. Active schema: " ~ deploy_schema, info=True) }}
+            {{ log("Deployment complete. Active schema: " ~ target.schema, info=True) }}
 
         {% else %}
 
-            {{ log("xxx" ~ total_failures ~ " failure(s) detected. Proxy view NOT swapped. Previous deployment remains active.", info=True) }}
+            {{ log(total_failures ~ " failure(s) detected. Proxy view NOT swapped.", info=True) }}
 
         {% endif %}
 

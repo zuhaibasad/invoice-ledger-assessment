@@ -29,6 +29,6 @@ SELECT
         payment_terms_days,
         line_item_count,
         calculated_invoice_total,
-        amount_discrepancy,
+        amount_discrepancy
         
 FROM {{ ref('int_invoice_totals') }}

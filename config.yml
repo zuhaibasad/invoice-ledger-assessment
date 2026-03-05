@@ -1,5 +1,5 @@
 database: 
-  name: "data/invoice_warehouse.duckdb"
+  path: "data/invoice_warehouse.duckdb"
 
 schemas:
   raw: "raw"

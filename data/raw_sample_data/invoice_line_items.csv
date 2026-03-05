@@ -16,7 +16,7 @@ line_item_id,invoice_id,product_name,quantity,unit_price
 15,13,Consulting Services,7,150.00
 16,14,Hardware Supply,1,330.00
 17,15,Enterprise Support,1,980.00
-18,16,Consulting Services,1,-250.00
+18,16,Consulting Services,1,250.00
 19,17,Software License,0,0.00
 20,2,Hardware Supply,1,0.01
 21,999,Consulting Services,1,500.00

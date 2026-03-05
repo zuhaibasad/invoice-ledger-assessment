@@ -12,7 +12,7 @@ sources:
 models:
   - name: stg_invoices
     description: "Staging model for invoices, selecting from raw.invoices and 1:1 mapping of raw invoice, no business logic here"
-      
+
     config:
         materialized: view
     
@@ -42,18 +42,19 @@ models:
         description: "Total amount for the invoice, can not be null and should be non-negative"
         tests:
           - not_null
-          - is_non_negative
+          - dbt_utils.expression_is_true:
+              expression: ">= 0"
       
       - name: invoice_status
         description: "Current status of the invoice, allowed values are 'paid', 'overdue', 'pending' and repalced NULL with 'unknow'"
         tests:
           - not_null
           - accepted_values:
-              values: ['paid', 'overdue', 'pending', 'unknow']
+              values: ['paid', 'overdue', 'pending', 'unknown']
   
   - name: stg_customers
     description: "Staging model for customers, selecting from raw.customers and 1:1 mapping of raw customer, no business logic here"
-        
+ 
     config:
         materialized: view
 
@@ -71,18 +72,18 @@ models:
         description: "Email address of the customer"
 
       - name: customer_country
-        description: "Phone number of the customer"
+        description: country of the customer"
       
       - name: customer_segment
         description: "Market segment of the customer, allowed values are 'SMB', 'Enterprise', 'Startup' and replaced NULL with 'unknown'"
         tests:
           - not_null
           - accepted_values:
-              values: ['SMB', 'Enterprise', 'Startup', 'unknown']
+              values: ['smb', 'enterprise', 'startup', 'unknown']
 
   - name: stg_invoice_line_items
     description: "Staging model for invoice line items, selecting from raw.invoice_line_items and 1:1 mapping of raw invoice line items, no business logic here"
-        
+
     config:
         materialized: view
         
@@ -93,7 +94,7 @@ models:
           - not_null
 
       - name: invoice_id
-        description: "Identifier for the invoice associated with the line item, foreign key to invoices table
+        description: "Identifier for the invoice associated with the line item, foreign key to invoices table"
         tests: 
           - not_null
 
@@ -104,13 +105,12 @@ models:
         description: "Quantity of the product or service for the line item, can not be null and should be non-negative"
         tests:
           - not_null
-          - is_non_negative
+          - dbt_utils.expression_is_true:
+              expression: ">= 0"
       
       - name: unit_price
         description: "Unit price of the product or service for the line item, can not be null and should be non-negative"
         tests:
           - not_null
-          - is_non_negative
-      
-
-      
+          - dbt_utils.expression_is_true:
+              expression: ">= 0"

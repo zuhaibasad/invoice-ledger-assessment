@@ -24,8 +24,7 @@ models:
      contract:
        enforced: true
      materialized: table
-     post hook:
-       - "{{ swap_proxy_view()}}"
+
   latest_version: 1
 
   versions:
@@ -33,7 +32,7 @@ models:
       columns:
          - name: invoice_id
            description: "Unique invoice identifier"
-           data_type: INTEGER
+           data_type: BIGINT
            constraints:
              - type: not_null
            tests:
@@ -45,8 +44,13 @@ models:
            data_type: DOUBLE
            constraints:
              - type: not_null
+             - type: check
+               expression: "invoice_amount >= 0"
+
            tests:
-             - not_null  
+             - not_null
+             - dbt_utils.expression_is_true:
+                  expression: ">= 0"
 
          - name: calculated_invoice_total
            description: "invoice amount calculated by line items count and unit price of each line item"
@@ -92,7 +96,7 @@ models:
           
          - name: customer_id
            description: "Unique customer identifier"
-           data_type: INTEGER
+           data_type: BIGINT
           
          - name: customer_name
            description: "Customer's full name"
@@ -112,16 +116,19 @@ models:
          
          - name: line_item_count
            description: "Number of line items on the invoice"
-           data_type: INTEGER
+           data_type: BIGINT
            constraints:
-              -type: not_null
-              -type: check
-               expression: "line_item_count >= 0"
+              - type: not_null
+              - type: check
+                expression: "line_item_count >= 0"
+           
            tests:
               - not_null
-              - check:
-                  expression: "line_item_count >= 0"
+              - dbt_utils.expression_is_true:
+                  expression: ">= 0"
           
-         - name: payment_term_days
+         - name: payment_terms_days
            description: "payment term in days calculated as the difference between invoice_due_date and invoice_date"
-           data_type: INTEGER
+           data_type: BIGINT
+           tests:
+              - not_null
